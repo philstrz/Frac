@@ -1,0 +1,38 @@
+{
+	"name": "Event sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "SHADOW_OFFSET",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 776103189216102
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 618961901251010
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "PaddleShadow",
+					"sid": 992823064354284,
+					"parameters": {
+						"x": "Paddle.X + SHADOW_OFFSET",
+						"y": "Paddle.Y + SHADOW_OFFSET"
+					}
+				}
+			],
+			"sid": 926054821868641
+		}
+	],
+	"sid": 445921654178940
+}
