@@ -2,36 +2,75 @@
 	"name": "Event sheet",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "SHADOW_OFFSET",
-			"type": "number",
-			"initialValue": "2",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 776103189216102
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shadows",
+			"description": "Shadow objects follow their parent",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "SHADOW_OFFSET",
+					"type": "number",
+					"initialValue": "2",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 351449518366375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 488552072863749
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "PaddleShadow",
+							"sid": 536673434021870,
+							"parameters": {
+								"x": "Paddle.X + SHADOW_OFFSET",
+								"y": "Paddle.Y + SHADOW_OFFSET"
+							}
+						}
+					],
+					"sid": 676414480278562
+				}
+			],
+			"sid": 865853635551837
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "every-tick",
+					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 618961901251010
+					"sid": 764198421099798,
+					"parameters": {
+						"interval-seconds": "2"
+					}
 				}
 			],
 			"actions": [
 				{
-					"id": "set-position",
-					"objectClass": "PaddleShadow",
-					"sid": 992823064354284,
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 658874395443395,
 					"parameters": {
-						"x": "Paddle.X + SHADOW_OFFSET",
-						"y": "Paddle.Y + SHADOW_OFFSET"
+						"object-to-create": "Ball",
+						"layer": "\"Pong\"",
+						"x": "BallLauncher.X",
+						"y": "BallLauncher.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
 					}
 				}
 			],
-			"sid": 926054821868641
+			"sid": 826358226731877
 		}
 	],
 	"sid": 445921654178940

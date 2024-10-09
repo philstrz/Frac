@@ -1,6 +1,7 @@
 
 // Import any other script files here, e.g.:
 // import * as myModule from "./mymodule.js";
+import Ball from "./ball.js";
 
 const params = {
 	offset: 
@@ -13,6 +14,13 @@ const params = {
 		x: 40,
 		bottom: 180,
 		top: 20,
+	},
+	ball:
+	{
+		left: 48,
+		right: 320 - 48,
+		top: 8,
+		bottom: 200 - 8,
 	},
 };
 
@@ -27,6 +35,7 @@ runOnStartup(async runtime =>
 {
 	// Code to run on the loading screen.
 	// Note layouts, objects etc. are not yet available.
+	runtime.objects.Ball.setInstanceClass(Ball);
 	
 	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
 });
@@ -46,6 +55,10 @@ function Tick(runtime)
 {
 	// Code to run every tick
 	MovePaddle(runtime);
+	
+	for (const ball of runtime.objects.Ball.instances()) {
+		ball.Update();
+	};
 }
 
 function MovePaddle(runtime)

@@ -42,7 +42,9 @@
 			"Mouse",
 			"Camera",
 			"PaddleShadow",
-			"TiledBackground"
+			"TiledBackground",
+			"Ball",
+			"BallLauncher"
 		],
 		"subfolders": []
 	},
@@ -73,6 +75,14 @@
 					"sid": 177246120928057,
 					"script-info": {
 						"purpose": "main"
+					}
+				},
+				{
+					"name": "ball.js",
+					"type": "application/javascript",
+					"sid": 856033726369464,
+					"script-info": {
+						"purpose": "none"
 					}
 				}
 			],
