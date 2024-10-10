@@ -47,30 +47,80 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "every-x-seconds",
+					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 764198421099798,
-					"parameters": {
-						"interval-seconds": "2"
-					}
+					"sid": 191034393117643
 				}
 			],
 			"actions": [
 				{
-					"id": "create-object",
+					"id": "wait",
 					"objectClass": "System",
-					"sid": 658874395443395,
+					"sid": 953652760095241,
 					"parameters": {
-						"object-to-create": "Ball",
-						"layer": "\"Pong\"",
-						"x": "BallLauncher.X",
-						"y": "BallLauncher.Y",
-						"create-hierarchy": false,
-						"template-name": "\"\""
+						"seconds": "2"
 					}
+				},
+				{
+					"type": "script",
+					"script": "Next();"
 				}
 			],
-			"sid": 826358226731877
+			"sid": 670223002920429
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 988654660817606
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 658375193377235,
+							"parameters": {
+								"layer": "\"Debug\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 527458787003733,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 944686807243094
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "FrameRate",
+							"sid": 114686820785548,
+							"parameters": {
+								"text": "int(1 / dt)"
+							}
+						}
+					],
+					"sid": 885347986647565
+				}
+			],
+			"sid": 972910301163818
 		}
 	],
 	"sid": 445921654178940

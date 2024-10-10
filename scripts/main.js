@@ -2,34 +2,17 @@
 // Import any other script files here, e.g.:
 // import * as myModule from "./mymodule.js";
 import Ball from "./ball.js";
+import Generator from "./generator.js";
+import { params } from "./params.js";
 
-const params = {
-	offset: 
-	{
-		x: 160,
-		y: 100,
-	},
-	paddle: 
-	{
-		x: 40,
-		bottom: 180,
-		top: 20,
-	},
-	ball:
-	{
-		left: 48,
-		right: 320 - 48,
-		top: 8,
-		bottom: 200 - 8,
-	},
-};
-
-const paddle = 
+export const paddle = 
 {
 	x: 40,
 	y: 0,
 	object: null,
 };
+
+let generator = null;
 
 runOnStartup(async runtime =>
 {
@@ -48,7 +31,11 @@ async function OnBeforeProjectStart(runtime)
 	
 	runtime.addEventListener("tick", () => Tick(runtime));
 	
+	// Get object references
 	paddle.object = runtime.objects.Paddle.getFirstInstance();
+	
+	// Create the generator object
+	generator = new Generator(runtime);
 }
 
 function Tick(runtime)
@@ -72,4 +59,9 @@ function MovePaddle(runtime)
 	
 	paddle.y = y;
 	paddle.object.y = y;
+}
+
+export function Next(runtime)
+{
+	generator.Next();
 }
