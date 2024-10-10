@@ -62,8 +62,10 @@ class Ball extends globalThis.InstanceType.Ball
 				const delta = left - this.x;
 				this.x = left + delta;
 				
+				//console.log(this.theta);
+				//this.theta = 180 - this.theta;
+				this.theta = 2 * ( this.y - paddle.y );
 				console.log(this.theta);
-				this.theta = 180 - this.theta;
 			}	
 		}
 	}

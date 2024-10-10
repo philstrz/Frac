@@ -9,7 +9,7 @@ export const params = {
 		x: 40,
 		bottom: 180,
 		top: 20,
-		reach: 30,
+		reach: 28,
 	},
 	ball:
 	{
