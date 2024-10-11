@@ -1,0 +1,22 @@
+{
+	"name": "Denominator",
+	"plugin-id": "Spritefont2",
+	"sid": 917556829220700,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 9312156,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

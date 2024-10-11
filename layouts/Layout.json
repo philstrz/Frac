@@ -84,8 +84,119 @@
 		{
 			"name": "Fraction",
 			"overriden": 0,
-			"subLayers": [],
-			"instances": [],
+			"subLayers": [
+				{
+					"name": "Progress",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "ProgressFill",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 16,
+							"sid": 851130103901277,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 851130103901277,
+								"expanded": true
+							},
+							"world": {
+								"x": 282,
+								"y": 280,
+								"width": 50,
+								"height": 160,
+								"originX": 0.5,
+								"originY": 1,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 251770635771034,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				}
+			],
+			"instances": [
+				{
+					"type": "ProgressBar",
+					"properties": {
+						"left-margin": 4,
+						"right-margin": 4,
+						"top-margin": 4,
+						"bottom-margin": 4,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "center",
+						"seams": "overlap"
+					},
+					"uid": 15,
+					"sid": 345088689785780,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 345088689785780,
+						"expanded": true
+					},
+					"world": {
+						"x": 282,
+						"y": 200,
+						"width": 50,
+						"height": 160,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 596161636043605,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -123,43 +234,7 @@
 					"name": "Shadows",
 					"overriden": 0,
 					"subLayers": [],
-					"instances": [
-						{
-							"type": "PaddleShadow",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 5,
-							"sid": 122094741718545,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 122094741718545,
-								"expanded": true
-							},
-							"world": {
-								"x": 0,
-								"y": 0,
-								"width": 8,
-								"height": 40,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						}
-					],
+					"instances": [],
 					"sid": 447213166708658,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
@@ -190,43 +265,7 @@
 					"global": false
 				}
 			],
-			"instances": [
-				{
-					"type": "Paddle",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 2,
-					"sid": 584145984509098,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 584145984509098,
-						"expanded": true
-					},
-					"world": {
-						"x": 200,
-						"y": 200,
-						"width": 8,
-						"height": 40,
-						"originX": 1,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 797238075103511,
 			"effectTypes": [],
 			"isInitiallyVisible": true,

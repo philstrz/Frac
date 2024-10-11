@@ -36,9 +36,60 @@
 								"x": "Paddle.X + SHADOW_OFFSET",
 								"y": "Paddle.Y + SHADOW_OFFSET"
 							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "BallShadow",
+							"sid": 378594996209296,
+							"parameters": {
+								"x": "Ball.X + SHADOW_OFFSET",
+								"y": "Ball.Y + SHADOW_OFFSET"
+							}
 						}
 					],
 					"sid": 676414480278562
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "PaddleShadow",
+							"sid": 870329484922264
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-layer",
+							"objectClass": "PaddleShadow",
+							"sid": 933582662688795,
+							"parameters": {
+								"layer": "\"Shadows\""
+							}
+						}
+					],
+					"sid": 880788347215826
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "BallShadow",
+							"sid": 115614253615986
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-layer",
+							"objectClass": "BallShadow",
+							"sid": 716866378821064,
+							"parameters": {
+								"layer": "\"Shadows\""
+							}
+						}
+					],
+					"sid": 689667324752431
 				}
 			],
 			"sid": 865853635551837
@@ -95,8 +146,7 @@
 							}
 						}
 					],
-					"sid": 527458787003733,
-					"disabled": true
+					"sid": 527458787003733
 				},
 				{
 					"eventType": "block",

@@ -15,8 +15,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -52,7 +66,15 @@
 			"TiledBackground",
 			"Ball",
 			"BallLauncher",
-			"FrameRate"
+			"FrameRate",
+			"Opponent",
+			"BallShadow",
+			"Fraction",
+			"Bar",
+			"Numerator",
+			"Denominator",
+			"ProgressBar",
+			"ProgressFill"
 		],
 		"subfolders": []
 	},
@@ -64,7 +86,8 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout"
+			"Layout",
+			"repo"
 		],
 		"subfolders": []
 	},

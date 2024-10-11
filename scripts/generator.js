@@ -1,4 +1,4 @@
-
+import {params} from "./params.js";
 
 class Generator
 {
@@ -15,7 +15,9 @@ class Generator
 	
 	Next()
 	{
-		const ball = this.runtime.objects.Ball.createInstance("Pong", this.x, this.y);
+		const frac = this.runtime.objects.Fraction.createInstance("Fraction", params.offset.x + 198, params.offset.y + 100, true);
+	
+		const ball = this.runtime.objects.Ball.createInstance("Pong", this.x, this.y, true);
 		ball.Set(135);
 	}
 }

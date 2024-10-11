@@ -1,5 +1,5 @@
 import { params } from "./params.js";
-import { paddle } from "./main.js";
+import { paddle, opponent } from "./main.js";
 
 class Ball extends globalThis.InstanceType.Ball
 {
@@ -66,7 +66,11 @@ class Ball extends globalThis.InstanceType.Ball
 				//this.theta = 180 - this.theta;
 				this.theta = 2 * ( this.y - paddle.y );
 				console.log(this.theta);
-			}	
+			}
+			else
+			{
+				this.destroy();
+			}
 		}
 	}
 	
@@ -77,11 +81,19 @@ class Ball extends globalThis.InstanceType.Ball
 		
 		if (this.x > right)
 		{
-			const delta = this.x - right;
-			this.x = right - delta;
+			if (this.y >= opponent.y - params.paddle.reach && this.y <= opponent.y + params.paddle.reach)
+			{
+				const delta = this.x - right;
+				this.x = right - delta;
+
+				console.log(this.theta);
+				this.theta = 180 - this.theta;
+			}
+			else
+			{
+				this.destroy();
+			}
 			
-			console.log(this.theta);
-			this.theta = 180 - this.theta;
 		}
 	}
 }
