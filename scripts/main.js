@@ -73,10 +73,7 @@ function Tick(runtime)
 		ball.Update();
 	};
 	
-	for (const key in Coroutine.List)
-	{
-		Coroutine.List[key].tick();
-	}
+	Coroutine.Tick();
 }
 
 function MoveOpponent(runtime)

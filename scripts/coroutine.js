@@ -23,6 +23,14 @@ class Coroutine
 		console.log(this.id);
 	}
 	
+	static Tick()
+	{
+		for (const key in Coroutine.List)
+		{
+			Coroutine.List[key].tick();
+		}
+	}
+	
 	tick()
 	{
 		// Iterate
