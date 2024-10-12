@@ -301,30 +301,15 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 11,
-					"sid": 670485073647923,
+					"uid": 14,
+					"sid": 240091751622427,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"sceneGraphData": {
 						"parent-uid": null,
-						"uid": 11,
+						"uid": 14,
 						"children": [
-							{
-								"uid": 14,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"a": true,
-									"o": false,
-									"v": false,
-									"d": true,
-									"sm": "normal"
-								}
-							},
 							{
 								"uid": 12,
 								"flags": {
@@ -382,76 +367,13 @@
 						}
 					},
 					"instanceFolderItem": {
-						"sid": 670485073647923,
-						"expanded": true
-					},
-					"world": {
-						"x": 290,
-						"y": 120,
-						"width": 8,
-						"height": 8,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Bar",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 14,
-					"sid": 240091751622427,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"sceneGraphData": {
-						"parent-uid": 11,
-						"uid": 14,
-						"flags": {
-							"x": true,
-							"y": true,
-							"z": true,
-							"w": true,
-							"h": true,
-							"a": true,
-							"o": false,
-							"v": false,
-							"d": true,
-							"sm": "normal"
-						},
-						"preview": {
-							"transformX": 0,
-							"transformY": 0,
-							"transformZElevation": 0,
-							"transformW": 0,
-							"transformH": 0,
-							"transformA": 0,
-							"transformSX": 0,
-							"transformSY": 0,
-							"transformO": 0,
-							"previewSceneGraph": false
-						}
-					},
-					"instanceFolderItem": {
 						"sid": 240091751622427,
 						"expanded": true
 					},
 					"world": {
-						"x": 280,
+						"x": 285,
 						"y": 120,
-						"width": 70,
+						"width": 60,
 						"height": 8,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -490,7 +412,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"sceneGraphData": {
-						"parent-uid": 11,
+						"parent-uid": 14,
 						"uid": 12,
 						"flags": {
 							"x": true,
@@ -563,7 +485,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"sceneGraphData": {
-						"parent-uid": 11,
+						"parent-uid": 14,
 						"uid": 13,
 						"flags": {
 							"x": true,

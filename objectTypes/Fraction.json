@@ -1,7 +1,7 @@
 {
 	"name": "Fraction",
 	"plugin-id": "Sprite",
-	"sid": 720595422782510,
+	"sid": 893622395300590,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -19,13 +19,13 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 398888,
+						"imageSpriteId": 6403725,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 200997171238791,
+				"sid": 949836437151268,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

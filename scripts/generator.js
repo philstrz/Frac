@@ -1,7 +1,12 @@
 import {params} from "./params.js";
+import Utilities from "./utilities.js";
+import Coroutine from "./coroutine.js";
 
 class Generator
 {
+
+	fractionWidth = 60;
+
 	constructor(runtime) 
 	{
 		// Store runtime
@@ -11,14 +16,31 @@ class Generator
 		const launcher = runtime.objects.BallLauncher.getFirstInstance();
 		this.x = launcher.x;
 		this.y = launcher.y;
+		
+		this.fraction = runtime.objects.Fraction.createInstance("Fraction", params.offset.x + 198, params.offset.y + 100, true);
+		this.fraction.width = 0;
 	}
 	
 	Next()
 	{
-		const frac = this.runtime.objects.Fraction.createInstance("Fraction", params.offset.x + 198, params.offset.y + 100, true);
-	
 		const ball = this.runtime.objects.Ball.createInstance("Pong", this.x, this.y, true);
 		ball.Set(135);
+		
+		new Coroutine(this.FadeIn(), "FadeIn");
+	}
+	
+	* FadeIn()
+	{
+		let t = 0;
+		while (t < 1)
+		{
+			t += Coroutine.runtime.dt * 2;
+			const f = Utilities.EaseInCubic(t);
+			this.fraction.width = f * this.fractionWidth;
+			yield;
+		}
+		yield;
+		return;
 	}
 }
 

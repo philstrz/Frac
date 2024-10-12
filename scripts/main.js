@@ -4,6 +4,7 @@
 import Ball from "./ball.js";
 import Generator from "./generator.js";
 import { params } from "./params.js";
+import Coroutine from "./coroutine.js";
 
 export const paddle = 
 {
@@ -28,6 +29,9 @@ runOnStartup(async runtime =>
 	// Code to run on the loading screen.
 	// Note layouts, objects etc. are not yet available.
 	runtime.objects.Ball.setInstanceClass(Ball);
+	
+	// Add coroutines
+	Coroutine.SetRuntime(runtime);
 	
 	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
 });
@@ -71,6 +75,11 @@ function Tick(runtime)
 	for (const ball of runtime.objects.Ball.instances()) {
 		ball.Update();
 	};
+	
+	for (const key in runtime.coroutines)
+	{
+		runtime.coroutines[key].tick();
+	}
 }
 
 function MoveOpponent(runtime)

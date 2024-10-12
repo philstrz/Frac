@@ -18,4 +18,8 @@ export const params = {
 		top: 8,
 		bottom: 200 - 8,
 	},
+	fraction:
+	{
+		width: 60,
+	},
 };

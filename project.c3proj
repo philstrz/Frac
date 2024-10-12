@@ -70,7 +70,6 @@
 			"Opponent",
 			"BallShadow",
 			"Fraction",
-			"Bar",
 			"Numerator",
 			"Denominator",
 			"ProgressBar",
@@ -136,6 +135,22 @@
 					"name": "params.js",
 					"type": "application/javascript",
 					"sid": 211062963580746,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "utilities.js",
+					"type": "application/javascript",
+					"sid": 226213494070088,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "coroutine.js",
+					"type": "application/javascript",
+					"sid": 865789112945150,
 					"script-info": {
 						"purpose": "none"
 					}

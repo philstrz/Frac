@@ -107,9 +107,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 953652760095241,
+					"sid": 738314412598748,
 					"parameters": {
-						"seconds": "2"
+						"seconds": "1"
 					}
 				},
 				{
