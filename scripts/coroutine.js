@@ -4,17 +4,7 @@
 
 class Coroutine
 {	
-	static runtime = null;
-	
-	static SetRuntime(runtime)
-	{
-		Coroutine.runtime = runtime;
-		if (!runtime.coroutines)
-		{
-			//runtime.coroutines = [];
-			runtime.coroutines = {};
-		}
-	}
+	static List = {}
 	
 	constructor(func, id="empty")
 	{
@@ -22,13 +12,13 @@ class Coroutine
 		
 		const string = id;
 		let i = 0;
-		while (Coroutine.runtime.coroutines[id])
+		while (Coroutine.List[id])
 		{
 			id = string + i++;
 		}
 		
 		//Coroutine.runtime.coroutines.push(this);
-		Coroutine.runtime.coroutines[id] = this;
+		Coroutine.List[id] = this;
 		this.id = id;
 		console.log(this.id);
 	}
@@ -41,7 +31,7 @@ class Coroutine
 		// Remove when finished
 		if (next.done)
 		{
-			delete Coroutine.runtime.coroutines[this.id];
+			delete Coroutine.List[this.id];
 		}
 	}
 }

@@ -34,9 +34,8 @@ class Generator
 		let t = 0;
 		while (t < 1)
 		{
-			t += Coroutine.runtime.dt * 2;
-			const f = Utilities.EaseInCubic(t);
-			this.fraction.width = f * this.fractionWidth;
+			t += this.runtime.dt * 2;
+			this.fraction.width = Utilities.EaseInCubic(t) * this.fractionWidth;
 			yield;
 		}
 		yield;

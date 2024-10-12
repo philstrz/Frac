@@ -30,9 +30,6 @@ runOnStartup(async runtime =>
 	// Note layouts, objects etc. are not yet available.
 	runtime.objects.Ball.setInstanceClass(Ball);
 	
-	// Add coroutines
-	Coroutine.SetRuntime(runtime);
-	
 	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
 });
 
@@ -76,9 +73,9 @@ function Tick(runtime)
 		ball.Update();
 	};
 	
-	for (const key in runtime.coroutines)
+	for (const key in Coroutine.List)
 	{
-		runtime.coroutines[key].tick();
+		Coroutine.List[key].tick();
 	}
 }
 
