@@ -1,9 +1,14 @@
 import { params } from "./params.js";
 import { paddle, opponent } from "./main.js";
 
+
+//let theta = 0;
+const initial = 500;
+const final = 100;
+
 class Ball extends globalThis.InstanceType.Ball
 {
-	speed = 100;
+	speed = initial;
 	theta = 0;
 
 	constructor()
@@ -69,6 +74,9 @@ class Ball extends globalThis.InstanceType.Ball
 				//console.log(this.theta);
 				//this.theta = 180 - this.theta;
 				this.theta = 2 * ( this.y - paddle.y );
+				
+				// Reduce speed after first hit
+				this.speed = final;
 			}
 			else
 			{

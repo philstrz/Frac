@@ -5,10 +5,12 @@
 class Coroutine
 {	
 	static List = {}
+	paused = false;
 	
 	constructor(func, id="empty")
 	{
 		this.func = func;
+		this.main = func;
 		
 		const string = id;
 		let i = 0;
@@ -20,7 +22,6 @@ class Coroutine
 		//Coroutine.runtime.coroutines.push(this);
 		Coroutine.List[id] = this;
 		this.id = id;
-		console.log(this.id);
 	}
 	
 	static Tick()
@@ -31,15 +32,43 @@ class Coroutine
 		}
 	}
 	
+	static Wait(runtime)
+	{
+		return function*(time) { 
+			let t = 0;
+			while ( t < time )
+			{
+				t += runtime.dt;
+				yield;
+			}
+			return;
+		};
+	}
+	
 	tick()
 	{
 		// Iterate
 		const next = this.func.next();
+		//console.log(next);
+		
+		if (next.value)
+		{
+			this.func = next.value;
+			this.paused = true;
+		}
 		
 		// Remove when finished
 		if (next.done)
 		{
-			delete Coroutine.List[this.id];
+			if (this.paused)
+			{
+				this.func = this.main;
+				this.paused = false;
+			}
+			else
+			{
+				delete Coroutine.List[this.id];
+			}
 		}
 	}
 }

@@ -98,9 +98,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-start-of-layout",
+					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 191034393117643
+					"sid": 236393779563119,
+					"parameters": {
+						"interval-seconds": "3"
+					}
 				}
 			],
 			"actions": [

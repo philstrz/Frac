@@ -7,13 +7,22 @@ let numerator = null;
 let denominator = null;
 const fractionWidth = 60;
 
+// Largest possible denominator
+const min = 2;
+let max = 2;
+// Previous fraction
+let v = 0;
+
+// Store runtime
+let runtime = null;
+
 class Generator
 {
 
-	constructor(runtime) 
+	constructor(rt) 
 	{
 		// Store runtime
-		this.runtime = runtime;
+		runtime = rt;
 		
 		// Get launch position from BallLauncher object
 		const launcher = runtime.objects.BallLauncher.getFirstInstance();
@@ -29,13 +38,43 @@ class Generator
 	
 	Next()
 	{
-		const ball = this.runtime.objects.Ball.createInstance("Pong", this.x, this.y, true);
-		ball.Set(0.5);
+		// Get a random denominator
+		const u = Math.random();
+		const d = Math.floor( min + Math.sqrt(u) * (max - min + 1) );
 		
-		numerator.text = "1";
-		denominator.text = "2";
+		// Increment denominator
+		if (d == max) max++;
+	
+		const n = this.GetNumerator(d);
+		
+		numerator.text = String(n);
+		denominator.text = String(d);
 		
 		new Coroutine(this.FadeIn(), "FadeIn");
+	}
+	
+	Launch()
+	{
+		const ball = runtime.objects.Ball.createInstance("Pong", this.x, this.y, true);
+		ball.Set(v);
+	}
+	
+	GetNumerator(d)
+	{
+		const u = Math.random();
+		
+		let y = (d  - 2) * u + 0.5;
+		v *= d;
+		if ( y >= v - 0.5)
+		{
+			y = (d - 2) * u + 1.5;
+		}
+		
+		let n = Math.round(y);
+		n = n >= d ? d - 1 : n;
+		
+		v = n / d;
+		return n;
 	}
 	
 	* FadeIn()
@@ -43,11 +82,13 @@ class Generator
 		let t = 0;
 		while (t < 1)
 		{
-			t += this.runtime.dt * 2;
+			t += runtime.dt * 2;
 			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
 			yield;
 		}
-		yield;
+		yield Coroutine.Wait(runtime)(1);
+		
+		this.Launch();
 		return;
 	}
 }
