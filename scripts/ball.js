@@ -23,9 +23,13 @@ class Ball extends globalThis.InstanceType.Ball
 	}
 	
 	// Immediately after ball is created, set its initial direction
-	Set(angle)
-	{
-		this.theta = angle;
+	Set(fraction)
+	{	
+		// ball position minus the point where it should hit the paddle
+		const x = (params.ball.left + params.offset.x) - this.x;
+		const y = (fraction * ( params.paddle.top -params.paddle.bottom ) + params.paddle.bottom + params.offset.y) - this.y;
+		// convert to angle, in degrees
+		this.theta = Math.atan2(y, x) * 180 / Math.PI;
 	}
 	
 	// Check if the ball is at the top or bottom of the game
@@ -65,7 +69,6 @@ class Ball extends globalThis.InstanceType.Ball
 				//console.log(this.theta);
 				//this.theta = 180 - this.theta;
 				this.theta = 2 * ( this.y - paddle.y );
-				console.log(this.theta);
 			}
 			else
 			{
@@ -86,7 +89,6 @@ class Ball extends globalThis.InstanceType.Ball
 				const delta = this.x - right;
 				this.x = right - delta;
 
-				console.log(this.theta);
 				this.theta = 180 - this.theta;
 			}
 			else

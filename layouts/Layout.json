@@ -109,7 +109,7 @@
 								"expanded": true
 							},
 							"world": {
-								"x": 282,
+								"x": 280,
 								"y": 280,
 								"width": 50,
 								"height": 160,
@@ -119,6 +119,247 @@
 									1,
 									1,
 									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Fraction",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 11,
+							"sid": 954493300675248,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 11,
+								"children": [
+									{
+										"uid": 17,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 18,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 954493300675248,
+								"expanded": true
+							},
+							"world": {
+								"x": 360,
+								"y": 200,
+								"width": 60,
+								"height": 8,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Numerator",
+							"properties": {
+								"text": "1",
+								"enable-bbcode": true,
+								"character-width": 16,
+								"character-height": 16,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+								"spacing-data": "",
+								"scale": 4,
+								"character-spacing": -24,
+								"line-height": 0,
+								"horizontal-alignment": "center",
+								"vertical-alignment": "bottom",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 17,
+							"sid": 801065493298680,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 11,
+								"uid": 17,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 801065493298680,
+								"expanded": true
+							},
+							"world": {
+								"x": 380,
+								"y": 160,
+								"width": 140,
+								"height": 70,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									0.6666666666666666,
+									0.49019607843137253,
+									0.2235294117647059,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Denominator",
+							"properties": {
+								"text": "2",
+								"enable-bbcode": true,
+								"character-width": 16,
+								"character-height": 16,
+								"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+								"spacing-data": "",
+								"scale": 4,
+								"character-spacing": -24,
+								"line-height": 0,
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "center",
+								"read-aloud": false
+							},
+							"uid": 18,
+							"sid": 966247327683855,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 11,
+								"uid": 18,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZElevation": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 966247327683855,
+								"expanded": true
+							},
+							"world": {
+								"x": 380,
+								"y": 240,
+								"width": 140,
+								"height": 60,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									0.6666666666666666,
+									0.49019607843137253,
+									0.2235294117647059,
 									1
 								],
 								"angle": 0,
@@ -180,7 +421,7 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 282,
+						"x": 280,
 						"y": 200,
 						"width": 50,
 						"height": 160,

@@ -2,10 +2,13 @@ import {params} from "./params.js";
 import Utilities from "./utilities.js";
 import Coroutine from "./coroutine.js";
 
+let fraction = null;
+let numerator = null;
+let denominator = null;
+const fractionWidth = 60;
+
 class Generator
 {
-
-	fractionWidth = 60;
 
 	constructor(runtime) 
 	{
@@ -17,14 +20,20 @@ class Generator
 		this.x = launcher.x;
 		this.y = launcher.y;
 		
-		this.fraction = runtime.objects.Fraction.createInstance("Fraction", params.offset.x + 198, params.offset.y + 100, true);
-		this.fraction.width = 0;
+		fraction = runtime.objects.Fraction.getFirstInstance();
+		fraction.width = 0;
+		
+		numerator = fraction.getChildAt(0);
+		denominator = fraction.getChildAt(1);
 	}
 	
 	Next()
 	{
 		const ball = this.runtime.objects.Ball.createInstance("Pong", this.x, this.y, true);
-		ball.Set(135);
+		ball.Set(0.5);
+		
+		numerator.text = "1";
+		denominator.text = "2";
 		
 		new Coroutine(this.FadeIn(), "FadeIn");
 	}
@@ -35,7 +44,7 @@ class Generator
 		while (t < 1)
 		{
 			t += this.runtime.dt * 2;
-			this.fraction.width = Utilities.EaseInCubic(t) * this.fractionWidth;
+			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
 			yield;
 		}
 		yield;
