@@ -4,7 +4,7 @@ import { paddle, opponent } from "./main.js";
 
 //let theta = 0;
 const initial = 500;
-const final = 100;
+const final = 150;
 
 class Ball extends globalThis.InstanceType.Ball
 {

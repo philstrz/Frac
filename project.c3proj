@@ -73,7 +73,10 @@
 			"Numerator",
 			"Denominator",
 			"ProgressBar",
-			"ProgressFill"
+			"ProgressFill",
+			"Finger",
+			"Fingers",
+			"BallTrail"
 		],
 		"subfolders": []
 	},
@@ -151,6 +154,14 @@
 					"name": "coroutine.js",
 					"type": "application/javascript",
 					"sid": 865789112945150,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "fingers.js",
+					"type": "application/javascript",
+					"sid": 264159172600014,
 					"script-info": {
 						"purpose": "none"
 					}

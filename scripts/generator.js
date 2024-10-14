@@ -51,6 +51,11 @@ class Generator
 		denominator.text = String(d);
 		
 		new Coroutine(this.FadeIn(), "FadeIn");
+		
+		return {
+			n: n,
+			d: d,
+		}
 	}
 	
 	Launch()
@@ -86,7 +91,7 @@ class Generator
 			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
 			yield;
 		}
-		yield Coroutine.Wait(runtime)(1);
+		yield Coroutine.Wait(runtime)(2);
 		
 		this.Launch();
 		return;
