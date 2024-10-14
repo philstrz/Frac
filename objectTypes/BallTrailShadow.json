@@ -1,7 +1,7 @@
 {
-	"name": "Paddle",
+	"name": "BallTrailShadow",
 	"plugin-id": "Sprite",
-	"sid": 336133021121756,
+	"sid": 507711631033129,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,21 +11,21 @@
 			{
 				"frames": [
 					{
-						"width": 1,
-						"height": 1,
-						"originX": 1,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 2607634,
+						"imageSpriteId": 5185345,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 533055398840479,
+				"sid": 755781162683551,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

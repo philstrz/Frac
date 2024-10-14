@@ -4,7 +4,7 @@ import { paddle, opponent } from "./main.js";
 
 //let theta = 0;
 const initial = 500;
-const final = 150;
+const final = 200;
 
 class Ball extends globalThis.InstanceType.Ball
 {
@@ -25,6 +25,16 @@ class Ball extends globalThis.InstanceType.Ball
 		this.CheckBounds();
 		this.CheckLeft();
 		this.CheckRight();
+		
+		if (this.speed == initial)
+		{
+			this.drawTrail();
+		}
+	}
+	
+	drawTrail()
+	{
+		this.runtime.objects.BallTrail.createInstance("Pong", this.x, this.y);
 	}
 	
 	// Immediately after ball is created, set its initial direction

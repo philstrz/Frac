@@ -10,7 +10,7 @@ const timeScale = 2;
 class Fingers extends globalThis.InstanceType.Fingers
 {
 
-	fingers = [];
+	fingers = null;
 
 	constructor()
 	{
@@ -25,7 +25,10 @@ class Fingers extends globalThis.InstanceType.Fingers
 	* out(d)
 	{
 		let t = 0;
-		while (t < 1)
+		
+		if (this.fingers)
+		{
+			while (t < 1)
 		{
 			for (const finger of this.fingers)
 			{
@@ -39,6 +42,8 @@ class Fingers extends globalThis.InstanceType.Fingers
 		{
 			finger.destroy();
 		}
+		}
+		
 		new Coroutine(this.in(d), "in");
 		return;
 	}

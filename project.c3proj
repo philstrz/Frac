@@ -76,7 +76,8 @@
 			"ProgressFill",
 			"Finger",
 			"Fingers",
-			"BallTrail"
+			"BallTrail",
+			"BallTrailShadow"
 		],
 		"subfolders": []
 	},

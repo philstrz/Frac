@@ -2,22 +2,22 @@
 	"name": "Event sheet",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "SHADOW_OFFSET",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 258621383895934
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Shadows",
 			"description": "Shadow objects follow their parent",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "variable",
-					"name": "SHADOW_OFFSET",
-					"type": "number",
-					"initialValue": "2",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": true,
-					"sid": 351449518366375
-				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -90,6 +90,27 @@
 						}
 					],
 					"sid": 689667324752431
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "BallTrailShadow",
+							"sid": 433376972111922
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-layer",
+							"objectClass": "BallTrailShadow",
+							"sid": 608730194531908,
+							"parameters": {
+								"layer": "\"Shadows\""
+							}
+						}
+					],
+					"sid": 826118323253742
 				}
 			],
 			"sid": 865853635551837
@@ -174,6 +195,89 @@
 				}
 			],
 			"sid": 972910301163818
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Ball Trail",
+			"description": "Every ball leaves a trail behind it",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "SHRINK_RATE",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": true,
+					"sid": 569095217912360
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 469823781080790
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "BallTrail",
+							"sid": 519930594768375,
+							"parameters": {
+								"instance-variable": "scale",
+								"value": "dt * SHRINK_RATE"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "BallTrail",
+							"sid": 513959097563236,
+							"parameters": {
+								"scale": "BallTrail.scale"
+							}
+						}
+					],
+					"sid": 210750463432236,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "BallTrail",
+									"sid": 723132280488131,
+									"parameters": {
+										"instance-variable": "scale",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-scale",
+									"objectClass": "BallTrail",
+									"sid": 129519231482466,
+									"parameters": {
+										"scale": "0"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "BallTrail",
+									"sid": 479473943933452
+								}
+							],
+							"sid": 871038551622308
+						}
+					]
+				}
+			],
+			"sid": 331894808166725
 		}
 	],
 	"sid": 445921654178940
