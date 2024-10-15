@@ -90,10 +90,11 @@ class Ball extends globalThis.InstanceType.Ball
 			}
 			else
 			{
-				this.destroy();
+				this.explode();
 			}
 		}
 	}
+	
 	
 	// Check the right side, if there's a paddle there
 	CheckRight()
@@ -111,11 +112,19 @@ class Ball extends globalThis.InstanceType.Ball
 			}
 			else
 			{
-				this.destroy();
+				this.explode();
 			}
 			
 		}
 	}
+	
+	// Leave an explosion particle effect and destroy the ball
+	explode()
+	{
+		const explode = this.runtime.objects.Explode.createInstance("Pong", this.x, this.y, true);
+		this.destroy()
+	}
+	
 }
 
 export default Ball;

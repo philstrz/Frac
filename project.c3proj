@@ -22,6 +22,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -77,7 +84,8 @@
 			"Finger",
 			"Fingers",
 			"BallTrail",
-			"BallTrailShadow"
+			"BallTrailShadow",
+			"Explode"
 		],
 		"subfolders": []
 	},

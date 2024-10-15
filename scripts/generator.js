@@ -13,6 +13,9 @@ let max = 2;
 // Previous fraction
 let v = 0;
 
+// How fast to fade in/out
+const timeScale = 2;
+
 // Store runtime
 let runtime = null;
 
@@ -37,7 +40,7 @@ class Generator
 	}
 	
 	Next()
-	{
+	{		
 		// Get a random denominator
 		const u = Math.random();
 		const d = Math.floor( min + Math.sqrt(u) * (max - min + 1) );
@@ -47,10 +50,7 @@ class Generator
 	
 		const n = this.GetNumerator(d);
 		
-		numerator.text = String(n);
-		denominator.text = String(d);
-		
-		new Coroutine(this.FadeIn(), "FadeIn");
+		new Coroutine(this.FadeOut(n, d), "FadeOut");
 		
 		return {
 			n: n,
@@ -82,13 +82,31 @@ class Generator
 		return n;
 	}
 	
+	* FadeOut(n, d)
+	{
+		let t = fraction.width / fractionWidth;
+		while (t > 0)
+		{
+			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
+			t -= runtime.dt * timeScale;
+			yield;
+		}
+		fraction.width = 0;
+		
+		numerator.text = String(n);
+		denominator.text = String(d);
+		
+		new Coroutine(this.FadeIn(), "FadeIn");
+		return;
+	}
+	
 	* FadeIn()
 	{
 		let t = 0;
 		while (t < 1)
 		{
-			t += runtime.dt * 2;
 			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
+			t += runtime.dt * timeScale;
 			yield;
 		}
 		yield Coroutine.Wait(runtime)(2);

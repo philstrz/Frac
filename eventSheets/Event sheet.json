@@ -121,27 +121,36 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 236393779563119,
+					"sid": 587908383605079,
 					"parameters": {
-						"interval-seconds": "3"
+						"interval-seconds": "4"
 					}
 				}
 			],
 			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 738314412598748,
-					"parameters": {
-						"seconds": "1"
-					}
-				},
 				{
 					"type": "script",
 					"script": "Next();"
 				}
 			],
 			"sid": 670223002920429
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 766242758951484
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "Next();"
+				}
+			],
+			"sid": 389181812228956
 		},
 		{
 			"eventType": "group",
@@ -278,6 +287,31 @@
 				}
 			],
 			"sid": 331894808166725
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Particles",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 257641937244865,
+							"parameters": {
+								"seconds": "2"
+							}
+						}
+					],
+					"sid": 621064812757423
+				}
+			],
+			"sid": 103375851958602
 		}
 	],
 	"sid": 445921654178940
