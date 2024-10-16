@@ -1,6 +1,6 @@
 import Coroutine from "./coroutine.js";
 import { params } from "./params.js";
-import Utilities from "./utilities.js";
+import {Ease} from "./utilities.js";
 
 const x = 280 - 25;
 const w = 50;
@@ -32,7 +32,7 @@ class Fingers extends globalThis.InstanceType.Fingers
 		{
 			for (const finger of this.fingers)
 			{
-				finger.width = Utilities.EaseOutCubic(1-t) * w;
+				finger.width = Ease.OutCubic(1-t) * w;
 			}
 			t += this.runtime.dt * timeScale;
 			yield;
@@ -69,7 +69,7 @@ class Fingers extends globalThis.InstanceType.Fingers
 		{
 			for (const finger of this.fingers)
 			{
-				finger.width = Utilities.EaseInCubic(t) * w;
+				finger.width = Ease.InCubic(t) * w;
 			}
 			t += this.runtime.dt * timeScale;
 			yield;

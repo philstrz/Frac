@@ -1,5 +1,5 @@
 import {params} from "./params.js";
-import Utilities from "./utilities.js";
+import {Ease} from "./utilities.js";
 import Coroutine from "./coroutine.js";
 
 let fraction = null;
@@ -90,8 +90,8 @@ class Generator
 		let t = fraction.width / fractionWidth;
 		while (t > 0)
 		{
-			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
-			fraction.height = Utilities.EaseInCubic(t) * fractionHeight;
+			fraction.width = Ease.InCubic(t) * fractionWidth;
+			fraction.height = Ease.InCubic(t) * fractionHeight;
 			t -= runtime.dt * timeScale;
 			yield;
 		}
@@ -110,8 +110,8 @@ class Generator
 		let t = 0;
 		while (t < 1)
 		{
-			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
-			fraction.height = Utilities.EaseInCubic(t) * fractionHeight;
+			fraction.width = Ease.InCubic(t) * fractionWidth;
+			fraction.height = Ease.InCubic(t) * fractionHeight;
 			t += runtime.dt * timeScale;
 			yield;
 		}
