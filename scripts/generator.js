@@ -5,7 +5,9 @@ import Coroutine from "./coroutine.js";
 let fraction = null;
 let numerator = null;
 let denominator = null;
+
 const fractionWidth = 60;
+const fractionHeight = 8;
 
 // Largest possible denominator
 const min = 2;
@@ -34,6 +36,7 @@ class Generator
 		
 		fraction = runtime.objects.Fraction.getFirstInstance();
 		fraction.width = 0;
+		fraction.height = 0;
 		
 		numerator = fraction.getChildAt(0);
 		denominator = fraction.getChildAt(1);
@@ -88,10 +91,12 @@ class Generator
 		while (t > 0)
 		{
 			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
+			fraction.height = Utilities.EaseInCubic(t) * fractionHeight;
 			t -= runtime.dt * timeScale;
 			yield;
 		}
 		fraction.width = 0;
+		fraction.height = 0;
 		
 		numerator.text = String(n);
 		denominator.text = String(d);
@@ -106,9 +111,12 @@ class Generator
 		while (t < 1)
 		{
 			fraction.width = Utilities.EaseInCubic(t) * fractionWidth;
+			fraction.height = Utilities.EaseInCubic(t) * fractionHeight;
 			t += runtime.dt * timeScale;
 			yield;
 		}
+		fraction.width = fractionWidth;
+		fraction.height = fractionHeight;
 		yield Coroutine.Wait(runtime)(2);
 		
 		this.Launch();

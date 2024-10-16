@@ -55,6 +55,7 @@ class Fingers extends globalThis.InstanceType.Fingers
 		
 		// Create the fingers
 		this.fingers = [];
+		d = d > 10 ? 4 : d;
 		for (let i = 1; i < d; i++)
 		{
 			y += h / d;
