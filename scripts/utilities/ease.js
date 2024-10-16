@@ -1,11 +1,9 @@
 /*
 
-A reusable set of tools
+ Easing functions
 
 */
-
-// Easing functions
-export class Ease
+export default class Ease
 {
 	static InOutCubic(t)
 	{
@@ -37,4 +35,6 @@ export class Ease
         return (t-1) * (1-t) + 1;
     }
 }
+
+
 

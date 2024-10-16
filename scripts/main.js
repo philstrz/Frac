@@ -4,7 +4,7 @@
 import Ball from "./ball.js";
 import Generator from "./generator.js";
 import { params } from "./params.js";
-import Coroutine from "./coroutine.js";
+import Coroutine from "./utilities/coroutine.js";
 import Fingers from "./fingers.js";
 
 export const paddle = 
@@ -43,6 +43,7 @@ async function OnBeforeProjectStart(runtime)
 	// instances are created and available to use here.
 	
 	runtime.addEventListener("tick", () => Tick(runtime));
+	Coroutine.Init(runtime);
 	
 	// Get object references
 	CreatePaddles(runtime)
@@ -75,8 +76,6 @@ function Tick(runtime)
 	for (const ball of runtime.objects.Ball.instances()) {
 		ball.Update();
 	};
-	
-	Coroutine.Tick();
 }
 
 function MoveOpponent(runtime)

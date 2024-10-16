@@ -1,6 +1,6 @@
 import {params} from "./params.js";
-import {Ease} from "./utilities.js";
-import Coroutine from "./coroutine.js";
+import Ease from "./utilities/ease.js";
+import Coroutine from "./utilities/coroutine.js"
 
 let fraction = null;
 let numerator = null;
@@ -117,7 +117,7 @@ class Generator
 		}
 		fraction.width = fractionWidth;
 		fraction.height = fractionHeight;
-		yield Coroutine.Wait(runtime)(2);
+		yield Coroutine.Wait(2);
 		
 		this.Launch();
 		return;

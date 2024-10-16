@@ -1,6 +1,6 @@
-import Coroutine from "./coroutine.js";
 import { params } from "./params.js";
-import {Ease} from "./utilities.js";
+import Ease from "./utilities/ease.js";
+import Coroutine from "./utilities/coroutine.js";
 
 const x = 280 - 25;
 const w = 50;
