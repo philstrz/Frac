@@ -59,7 +59,7 @@ class Ball extends globalThis.InstanceType.Ball
 	{	
 		// ball position minus the point where it should hit the paddle
 		const x = (Globals.ball.left + Globals.offset.x) - this.x;
-		const y = (fraction * ( Globals.paddle.top -Globals.paddle.bottom ) + Globals.paddle.bottom + Globals.offset.y) - this.y;
+		const y = (fraction * ( Globals.paddle.top - Globals.paddle.bottom ) + Globals.paddle.bottom + Globals.offset.y) - this.y;
 		// convert to angle, in degrees
 		this.theta = Math.atan2(y, x) * 180 / Math.PI;
 	}
@@ -79,7 +79,7 @@ class Ball extends globalThis.InstanceType.Ball
 			this.y = top;
 			
 			this.theta = - this.theta;
-			new Coroutine(this.squash(direction.up), "squash");
+			//new Coroutine(this.squash(direction.up), "squash");
 		}
 		if (this.y > bottom)
 		{
@@ -90,7 +90,7 @@ class Ball extends globalThis.InstanceType.Ball
 			this.y = bottom;
 			
 			this.theta = - this.theta;
-			new Coroutine(this.squash(direction.down), "squash");
+			//new Coroutine(this.squash(direction.down), "squash");
 		}
 	}
 	
@@ -111,11 +111,12 @@ class Ball extends globalThis.InstanceType.Ball
 				
 				this.theta = 2 * ( this.y - paddle.y );
 				
+				// Squash
+				new Coroutine(this.squash(direction.left, this.speed / initial), "squash");
+				
 				// Reduce speed after first hit
 				this.speed = final;
 				
-				// Squash
-				new Coroutine(this.squash(direction.left), "squash");
 			}
 			else
 			{
@@ -143,7 +144,7 @@ class Ball extends globalThis.InstanceType.Ball
 				this.theta = 180 - this.theta;
 				
 				// Squash
-				new Coroutine(this.squash(direction.right), "squash");
+				new Coroutine(this.squash(direction.right, this.speed / initial), "squash");
 			}
 			else
 			{
@@ -160,23 +161,8 @@ class Ball extends globalThis.InstanceType.Ball
 		this.destroy()
 	}
 	
-	* squash (dir)
+	* squash (dir, scale)
 	{
-		/*
-		let squashDim, stretchDim, anchor;
-		switch (direction)
-		{
-			case squashDirection.vertical:
-				squashDim = this.height;
-				stretchDim = this.width;
-				anchor = this.y;
-				break;
-			case squashDirection.horizontal:
-				squashDim = this.width;
-				stretchDim = this.height;
-				anchor = this.x;
-		}
-		*/
 		this.squashing = true;
 		
 		const anchor = 
@@ -190,7 +176,7 @@ class Ball extends globalThis.InstanceType.Ball
 		{
 			const f = Ease.OutCubic(t);
 			//console.log(t, f);
-			this.squeeze(dir, f, anchor);
+			this.squeeze(dir, f * scale, anchor);
 			t += this.runtime.dt * squashTimeScale;
 			yield;
 		}
@@ -203,7 +189,7 @@ class Ball extends globalThis.InstanceType.Ball
 		{
 			const f = Ease.OutCubic(t);
 			//console.log(t, f);
-			this.squeeze(dir, f, anchor);
+			this.squeeze(dir, f * scale, anchor);
 			t -= this.runtime.dt * squashTimeScale;
 			yield;
 		}
