@@ -1,4 +1,4 @@
-import { params } from "./params.js";
+import Globals from "./globals.js";
 import { paddle, opponent } from "./main.js";
 
 
@@ -41,8 +41,8 @@ class Ball extends globalThis.InstanceType.Ball
 	Set(fraction)
 	{	
 		// ball position minus the point where it should hit the paddle
-		const x = (params.ball.left + params.offset.x) - this.x;
-		const y = (fraction * ( params.paddle.top -params.paddle.bottom ) + params.paddle.bottom + params.offset.y) - this.y;
+		const x = (Globals.ball.left + Globals.offset.x) - this.x;
+		const y = (fraction * ( Globals.paddle.top -Globals.paddle.bottom ) + Globals.paddle.bottom + Globals.offset.y) - this.y;
 		// convert to angle, in degrees
 		this.theta = Math.atan2(y, x) * 180 / Math.PI;
 	}
@@ -50,8 +50,8 @@ class Ball extends globalThis.InstanceType.Ball
 	// Check if the ball is at the top or bottom of the game
 	CheckBounds()
 	{
-		const top = params.offset.y + params.ball.top;
-		const bottom = params.offset.y + params.ball.bottom;
+		const top = Globals.offset.y + Globals.ball.top;
+		const bottom = Globals.offset.y + Globals.ball.bottom;
 		
 		if (this.y < top)
 		{
@@ -72,11 +72,11 @@ class Ball extends globalThis.InstanceType.Ball
 	// Check if the ball has reached the paddle and if the paddle is there
 	CheckLeft()
 	{
-		const left = params.offset.x + params.ball.left;
+		const left = Globals.offset.x + Globals.ball.left;
 		
 		if (this.x < left)
 		{
-			if (this.y >= paddle.y - params.paddle.reach && this.y <= paddle.y + params.paddle.reach)
+			if (this.y >= paddle.y - Globals.paddle.reach && this.y <= paddle.y + Globals.paddle.reach)
 			{
 				const delta = left - this.x;
 				this.x = left + delta;
@@ -99,11 +99,11 @@ class Ball extends globalThis.InstanceType.Ball
 	// Check the right side, if there's a paddle there
 	CheckRight()
 	{
-		const right = params.offset.x + params.ball.right;
+		const right = Globals.offset.x + Globals.ball.right;
 		
 		if (this.x > right)
 		{
-			if (this.y >= opponent.y - params.paddle.reach && this.y <= opponent.y + params.paddle.reach)
+			if (this.y >= opponent.y - Globals.paddle.reach && this.y <= opponent.y + Globals.paddle.reach)
 			{
 				const delta = this.x - right;
 				this.x = right - delta;

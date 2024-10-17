@@ -144,7 +144,7 @@
 					}
 				},
 				{
-					"name": "params.js",
+					"name": "globals.js",
 					"type": "application/javascript",
 					"sid": 211062963580746,
 					"script-info": {

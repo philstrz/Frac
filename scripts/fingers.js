@@ -1,4 +1,4 @@
-import { params } from "./params.js";
+import Globals from "./globals.js";
 import Ease from "./utilities/ease.js";
 import Coroutine from "./utilities/coroutine.js";
 
@@ -20,6 +20,11 @@ class Fingers extends globalThis.InstanceType.Fingers
 	next(d)
 	{
 		new Coroutine(this.out(d), "out");
+	}
+	
+	close()
+	{
+		new Coroutine(this.out(0), "close");
 	}
 	
 	* out(d)
@@ -44,18 +49,18 @@ class Fingers extends globalThis.InstanceType.Fingers
 		}
 		}
 		
-		new Coroutine(this.in(d), "in");
+		if (d > 0) new Coroutine(this.in(d), "in");
 		return;
 	}
 	
 	* in(d)
 	{
-		let y = params.paddle.top + params.offset.y;
-		const h = params.paddle.bottom - params.paddle.top;
+		let y = Globals.paddle.top + Globals.offset.y;
+		const h = Globals.paddle.bottom - Globals.paddle.top;
 		
 		// Create the fingers
 		this.fingers = [];
-		d = d > 10 ? 4 : d;
+		d = d > 10 ? 1 : d;
 		for (let i = 1; i < d; i++)
 		{
 			y += h / d;

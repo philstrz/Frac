@@ -3,7 +3,7 @@
 // import * as myModule from "./mymodule.js";
 import Ball from "./ball.js";
 import Generator from "./generator.js";
-import { params } from "./params.js";
+import Globals from "./globals.js";
 import Coroutine from "./utilities/coroutine.js";
 import Fingers from "./fingers.js";
 
@@ -56,11 +56,11 @@ async function OnBeforeProjectStart(runtime)
 
 function CreatePaddles(runtime)
 {
-	let x = params.offset.x + paddle.x;
-	const y = params.offset.y + params.paddle.top;
+	let x = Globals.offset.x + paddle.x;
+	const y = Globals.offset.y + Globals.paddle.top;
 	paddle.object = runtime.objects.Paddle.createInstance("Pong", x, y, true);
 	
-	x = params.offset.x + opponent.x;
+	x = Globals.offset.x + opponent.x;
 	opponent.object = runtime.objects.Paddle.createInstance("Pong", x, y, true);
 	opponent.object.angleDegrees = 180;
 	opponent.y = y;
@@ -81,8 +81,8 @@ function Tick(runtime)
 function MoveOpponent(runtime)
 {
 	let y = opponent.y + opponent.dir * runtime.dt * opponent.speed;
-	const top = params.offset.y + params.paddle.top;
-	const bottom = params.offset.y + params.paddle.bottom;
+	const top = Globals.offset.y + Globals.paddle.top;
+	const bottom = Globals.offset.y + Globals.paddle.bottom;
 	
 	if (y < top)
 	{
@@ -103,8 +103,8 @@ function MoveOpponent(runtime)
 function MovePaddle(runtime)
 {
 	let y = runtime.mouse.getMouseY("Pong");
-	const top = params.offset.y + params.paddle.top;
-	const bottom = params.offset.y + params.paddle.bottom;
+	const top = Globals.offset.y + Globals.paddle.top;
+	const bottom = Globals.offset.y + Globals.paddle.bottom;
 	
 	y = y < top ? top : y;
 	y = y > bottom ? bottom : y;
@@ -115,11 +115,20 @@ function MovePaddle(runtime)
 
 export function AdjustProgress()
 {
-	progress.height = params.offset.y + params.paddle.bottom - paddle.y;
+	progress.height = Globals.offset.y + Globals.paddle.bottom - paddle.y;
 }
 
 export function Next(runtime)
 {
 	const {n, d} = generator.Next();
-	fingers.next(d);
+	
+	if (Globals.level == Globals.fingersClose)
+	{
+		fingers.close();
+	}
+	else if (Globals.level < Globals.fingersClose)
+	{
+		fingers.next(d);
+	}
+	
 }

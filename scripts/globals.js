@@ -1,4 +1,4 @@
-export const params = {
+const Globals = {
 	offset: 
 	{
 		x: 160,
@@ -18,4 +18,8 @@ export const params = {
 		top: 8,
 		bottom: 200 - 8,
 	},
+	level: 2,
+	fingersClose: 12,
 };
+
+export default Globals;

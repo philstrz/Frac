@@ -1,4 +1,4 @@
-import {params} from "./params.js";
+import Globals from "./globals.js";
 import Ease from "./utilities/ease.js";
 import Coroutine from "./utilities/coroutine.js"
 
@@ -11,7 +11,7 @@ const fractionHeight = 8;
 
 // Largest possible denominator
 const min = 2;
-let max = 2;
+//let max = 2;
 // Previous fraction
 let v = 0;
 
@@ -46,10 +46,10 @@ class Generator
 	{		
 		// Get a random denominator
 		const u = Math.random();
-		const d = Math.floor( min + Math.sqrt(u) * (max - min + 1) );
+		const d = Math.floor( min + Math.sqrt(u) * (Globals.level - min + 1) );
 		
 		// Increment denominator
-		if (d == max) max++;
+		if (d == Globals.level) Globals.level++;
 	
 		const n = this.GetNumerator(d);
 		
