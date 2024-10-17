@@ -9,7 +9,7 @@ const initial = 500;
 const final = 200;
 
 const size = 16;
-const squashAmount = 0.25;
+const squashAmount = 0.125;
 const squashTimeScale = 60;
 
 const direction = 
