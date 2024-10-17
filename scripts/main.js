@@ -58,12 +58,15 @@ function CreatePaddles(runtime)
 {
 	let x = Globals.offset.x + paddle.x;
 	const y = Globals.offset.y + Globals.paddle.top;
+	paddle.x = x;
+	paddle.y = y;
 	paddle.object = runtime.objects.Paddle.createInstance("Pong", x, y, true);
 	
 	x = Globals.offset.x + opponent.x;
 	opponent.object = runtime.objects.Paddle.createInstance("Pong", x, y, true);
 	opponent.object.angleDegrees = 180;
 	opponent.y = y;
+	opponent.x = x;
 }
 
 function Tick(runtime)

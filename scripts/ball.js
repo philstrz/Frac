@@ -1,15 +1,30 @@
 import Globals from "./globals.js";
 import { paddle, opponent } from "./main.js";
+import Coroutine from "./utilities/coroutine.js";
+import Ease from "./utilities/ease.js";
 
 
 //let theta = 0;
 const initial = 500;
 const final = 200;
 
+const size = 16;
+const squashAmount = 0.25;
+const squashTimeScale = 60;
+
+const direction = 
+{
+	up: "up",
+	down: "down",
+	left: "left",
+	right: "right",
+};
+
 class Ball extends globalThis.InstanceType.Ball
 {
 	speed = initial;
 	theta = 0;
+	squashing = false;
 
 	constructor()
 	{
@@ -18,6 +33,8 @@ class Ball extends globalThis.InstanceType.Ball
 	
 	Update()
 	{
+		if (this.squashing) return;
+		
 		const theta = this.theta * Math.PI / 180;
 		this.x += Math.cos(theta) * this.runtime.dt * this.speed;
 		this.y += Math.sin(theta) * this.runtime.dt * this.speed;
@@ -55,17 +72,25 @@ class Ball extends globalThis.InstanceType.Ball
 		
 		if (this.y < top)
 		{
+			/*
 			const delta = top - this.y;
 			this.y = top + delta;
+			*/
+			this.y = top;
 			
-			this.theta = - this.theta
+			this.theta = - this.theta;
+			new Coroutine(this.squash(direction.up), "squash");
 		}
 		if (this.y > bottom)
 		{
+			/*
 			const delta = this.y - bottom;
 			this.y = bottom - delta;
+			*/
+			this.y = bottom;
 			
 			this.theta = - this.theta;
+			new Coroutine(this.squash(direction.down), "squash");
 		}
 	}
 	
@@ -78,15 +103,19 @@ class Ball extends globalThis.InstanceType.Ball
 		{
 			if (this.y >= paddle.y - Globals.paddle.reach && this.y <= paddle.y + Globals.paddle.reach)
 			{
+				/*
 				const delta = left - this.x;
 				this.x = left + delta;
+				*/
+				this.x = left;
 				
-				//console.log(this.theta);
-				//this.theta = 180 - this.theta;
 				this.theta = 2 * ( this.y - paddle.y );
 				
 				// Reduce speed after first hit
 				this.speed = final;
+				
+				// Squash
+				new Coroutine(this.squash(direction.left), "squash");
 			}
 			else
 			{
@@ -105,10 +134,16 @@ class Ball extends globalThis.InstanceType.Ball
 		{
 			if (this.y >= opponent.y - Globals.paddle.reach && this.y <= opponent.y + Globals.paddle.reach)
 			{
+				/*
 				const delta = this.x - right;
 				this.x = right - delta;
+				*/
+				this.x = right;
 
 				this.theta = 180 - this.theta;
+				
+				// Squash
+				new Coroutine(this.squash(direction.right), "squash");
 			}
 			else
 			{
@@ -123,6 +158,88 @@ class Ball extends globalThis.InstanceType.Ball
 	{
 		const explode = this.runtime.objects.Explode.createInstance("Pong", this.x, this.y, true);
 		this.destroy()
+	}
+	
+	* squash (dir)
+	{
+		/*
+		let squashDim, stretchDim, anchor;
+		switch (direction)
+		{
+			case squashDirection.vertical:
+				squashDim = this.height;
+				stretchDim = this.width;
+				anchor = this.y;
+				break;
+			case squashDirection.horizontal:
+				squashDim = this.width;
+				stretchDim = this.height;
+				anchor = this.x;
+		}
+		*/
+		this.squashing = true;
+		
+		const anchor = 
+		{
+			x: this.x,
+			y: this.y,
+		};
+		
+		let t = 0
+		while ( t < 1 )
+		{
+			const f = Ease.OutCubic(t);
+			//console.log(t, f);
+			this.squeeze(dir, f, anchor);
+			t += this.runtime.dt * squashTimeScale;
+			yield;
+		}
+		
+		t = 1;
+		this.squeeze(dir, t, anchor);
+		yield;
+		
+		while ( t > 0 )
+		{
+			const f = Ease.OutCubic(t);
+			//console.log(t, f);
+			this.squeeze(dir, f, anchor);
+			t -= this.runtime.dt * squashTimeScale;
+			yield;
+		}
+		this.squeeze(dir, 0, anchor);
+		this.squashing = false;
+		return;
+	}
+	
+	squeeze(dir, amount, anchor)
+	{
+		switch (dir)
+		{
+			case direction.down:
+				this.height = size * (1 - squashAmount * amount);
+				this.width = size / (1 - squashAmount * amount);
+				this.y = anchor.y + (squashAmount * amount) * size / 2;
+				break;
+			case direction.up:
+				this.height = size * (1 - squashAmount * amount);
+				this.width = size / (1 - squashAmount * amount);
+				this.y = anchor.y - (squashAmount * amount) * size / 2;
+				break;
+			case direction.left:
+				this.width = size * (1 - squashAmount * amount);
+				this.height = size / (1 - squashAmount * amount);
+				this.x = anchor.x - (squashAmount * amount) * size;
+				paddle.object.x = paddle.x - (squashAmount * amount) * size / 2;
+				break;
+			case direction.right:
+				this.width = size * (1 - squashAmount * amount);
+				this.height = size / (1 - squashAmount * amount);
+				this.x = anchor.x + (squashAmount * amount) * size;
+				opponent.object.x = opponent.x + (squashAmount * amount) * size / 2;
+				break;
+			
+		}
 	}
 	
 }
