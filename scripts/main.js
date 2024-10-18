@@ -27,6 +27,7 @@ export const opponent =
 let generator = null;
 let progress = null;
 let fingers = null;
+let camera = null;
 
 runOnStartup(async runtime =>
 {
@@ -61,6 +62,7 @@ async function OnBeforeGameStart(runtime)
 	CreatePaddles(runtime)
 	progress = runtime.objects.ProgressFill.getFirstInstance();
 	fingers = runtime.objects.Fingers.getFirstInstance();
+	camera = runtime.objects.Camera.getFirstInstance();
 }
 
 function CreatePaddles(runtime)
@@ -90,6 +92,8 @@ function Tick(runtime)
 	for (const ball of runtime.objects.Ball.instances()) {
 		ball.Update();
 	};
+	
+	camera.tick();
 }
 
 let opponentActive = false;

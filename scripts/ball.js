@@ -12,6 +12,8 @@ const size = 16;
 const squashAmount = 0.125;
 const squashTimeScale = 60;
 
+let camera = null;
+
 const direction = 
 {
 	up: "up",
@@ -29,6 +31,8 @@ class Ball extends globalThis.InstanceType.Ball
 	constructor()
 	{
 		super();
+		
+		if (!camera) camera = this.runtime.objects.Camera.getFirstInstance();
 	}
 	
 	Update()
@@ -114,13 +118,19 @@ class Ball extends globalThis.InstanceType.Ball
 				// Squash
 				new Coroutine(this.squash(direction.left, this.speed / initial), "squash");
 				
+				// Boop
+				camera.boop(-5 * this.speed / initial, 0, 0.25);
+				
 				// Reduce speed after first hit
 				this.speed = final;
+				
+				
 				
 			}
 			else
 			{
 				this.explode();
+				camera.shake(10, 0.5);
 			}
 		}
 	}
