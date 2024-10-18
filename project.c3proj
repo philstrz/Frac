@@ -57,6 +57,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "scrollto",
 			"name": "Scroll To",
 			"author": "Scirra",
@@ -70,7 +77,6 @@
 			"Mouse",
 			"Camera",
 			"PaddleShadow",
-			"TiledBackground",
 			"Ball",
 			"BallLauncher",
 			"FrameRate",
@@ -85,11 +91,21 @@
 			"Fingers",
 			"BallTrail",
 			"BallTrailShadow",
-			"Explode",
-			"Title",
-			"Shadow"
+			"Explode"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Shadow",
+					"ShadowEffect",
+					"TiledBackground",
+					"Title",
+					"TitleEffect"
+				],
+				"subfolders": [],
+				"name": "Title"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],

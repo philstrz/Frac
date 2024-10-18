@@ -1,5 +1,97 @@
 {
 	"name": "Title",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 413838681116608
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "TitleEffect",
+					"sid": 637197901911124,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"TitleFade\"",
+						"property": "offsetY",
+						"end-value": "-100",
+						"time": "2",
+						"ease": "easeinsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 840858752295177,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "ShadowEffect",
+					"sid": 612359217433041,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"ShadowFade\"",
+						"property": "offsetY",
+						"end-value": "300",
+						"time": "2",
+						"ease": "easeinsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 954146817706329,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 528688297153075,
+					"parameters": {
+						"layout": "Layout"
+					}
+				}
+			],
+			"sid": 306310840278503
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 703202992252178,
+					"parameters": {
+						"interval-seconds": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": ""
+				}
+			],
+			"sid": 293522500110239
+		}
+	],
 	"sid": 366100444700946
 }
