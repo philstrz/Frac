@@ -102,8 +102,16 @@
 							"uid": 16,
 							"sid": 851130103901277,
 							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
+							"instanceVariables": {
+								"scale": 0
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 851130103901277,
 								"expanded": true
@@ -415,7 +423,13 @@
 					"sid": 345088689785780,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 345088689785780,
 						"expanded": true

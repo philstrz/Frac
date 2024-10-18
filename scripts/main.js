@@ -29,6 +29,12 @@ let progress = null;
 let fingers = null;
 let camera = null;
 
+export const scores = 
+{
+	player: 0,
+	opponent: 0,
+}
+
 runOnStartup(async runtime =>
 {
 	// Code to run on the loading screen.
@@ -148,9 +154,23 @@ function MoveOpponent(runtime)
 
 function MovePaddle(runtime)
 {
-	let y = runtime.mouse.getMouseY("Pong");
-	const top = Globals.offset.y + Globals.paddle.top;
-	const bottom = Globals.offset.y + Globals.paddle.bottom;
+	//let y = runtime.mouse.getMouseY("Pong");
+	let y = paddle.y;
+	
+	let top = Globals.offset.y;
+	let bottom = top + runtime.viewportHeight;
+	const left = Globals.offset.x;
+	const right = left + runtime.viewportWidth;
+	
+	const mouse = {};
+	[mouse.x, mouse.y] = runtime.mouse.getMousePosition("Pong");
+	if (mouse.y > top & mouse.y < bottom & mouse.x > left & mouse.x < right)
+	{
+		y = mouse.y;
+	}
+	
+	top = Globals.offset.y + Globals.paddle.top;
+	bottom = Globals.offset.y + Globals.paddle.bottom;
 	
 	y = y < top ? top : y;
 	y = y > bottom ? bottom : y;
@@ -161,7 +181,7 @@ function MovePaddle(runtime)
 
 export function AdjustProgress()
 {
-	progress.height = Globals.offset.y + Globals.paddle.bottom - paddle.y;
+	progress.height = (Globals.offset.y + Globals.paddle.bottom - paddle.y) * progress.instVars.scale;
 }
 
 export function Next()

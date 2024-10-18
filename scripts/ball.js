@@ -1,5 +1,5 @@
 import Globals from "./globals.js";
-import { paddle, opponent } from "./main.js";
+import { paddle, opponent, scores } from "./main.js";
 import Coroutine from "./utilities/coroutine.js";
 import Ease from "./utilities/ease.js";
 
@@ -131,6 +131,7 @@ class Ball extends globalThis.InstanceType.Ball
 			{
 				this.explode();
 				camera.shake(10, 0.5);
+				scores.opponent += 1;
 			}
 		}
 	}
@@ -158,6 +159,8 @@ class Ball extends globalThis.InstanceType.Ball
 			}
 			else
 			{
+				scores.player += 1;
+				console.log(scores.player, scores.opponent);
 				this.explode();
 			}
 			

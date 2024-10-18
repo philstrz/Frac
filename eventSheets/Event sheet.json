@@ -129,6 +129,14 @@
 			],
 			"actions": [
 				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 594919027176460,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
 					"type": "script",
 					"script": "Next();"
 				}
@@ -145,6 +153,14 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 996716293891134,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
 				{
 					"type": "script",
 					"script": "Next();"
@@ -291,11 +307,144 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Opponent",
-			"description": "Fade in the opponent paddle",
+			"title": "Level start",
+			"description": "Transition the various pieces in",
 			"isActiveOnStart": true,
-			"children": [],
-			"sid": 140611228501706
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 781685109278334
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "ProgressBar",
+							"sid": 734988023971071,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "ProgressBar",
+							"sid": 258857648087928,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Enter\"",
+								"property": "size",
+								"end-x": "50",
+								"end-y": "160",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "ProgressFill",
+							"sid": 983851362511121,
+							"parameters": {
+								"height": "0"
+							}
+						}
+					],
+					"sid": 353671115779123,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Paddle",
+									"sid": 618322149260001
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Paddle",
+									"sid": 794209713661958,
+									"parameters": {
+										"width": "0",
+										"height": "0"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Paddle",
+									"sid": 825197685727735,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Enter\"",
+										"property": "size",
+										"end-x": "8",
+										"end-y": "40",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 564773874437999
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 110618919870542
+								},
+								{
+									"id": "set-width",
+									"objectClass": "ProgressFill",
+									"sid": 269166643449165,
+									"parameters": {
+										"width": "50"
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "ProgressFill",
+									"sid": 946882728881846,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"scale\"",
+										"start-value": "0",
+										"end-value": "1",
+										"time": "0.5",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 124055776368326
+								}
+							],
+							"sid": 512140758034275
+						}
+					]
+				}
+			],
+			"sid": 412010667052264
 		}
 	],
 	"sid": 445921654178940
