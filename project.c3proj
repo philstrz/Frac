@@ -178,6 +178,14 @@
 					"script-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "camera.js",
+					"type": "application/javascript",
+					"sid": 724010253313930,
+					"script-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": [
@@ -195,6 +203,14 @@
 							"name": "ease.js",
 							"type": "application/javascript",
 							"sid": 226213494070088,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "particles.js",
+							"type": "application/javascript",
+							"sid": 532428171934398,
 							"script-info": {
 								"purpose": "none"
 							}

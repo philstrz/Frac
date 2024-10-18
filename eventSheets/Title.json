@@ -14,13 +14,13 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "TitleEffect",
-					"sid": 637197901911124,
+					"sid": 733010612786708,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"TitleFade\"",
 						"property": "offsetY",
 						"end-value": "-100",
-						"time": "2",
+						"time": "1",
 						"ease": "easeinsine",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -31,21 +31,21 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 840858752295177,
+					"sid": 219551977017268,
 					"parameters": {
-						"seconds": "1"
+						"seconds": "0.5"
 					}
 				},
 				{
 					"id": "tween-one-property",
 					"objectClass": "ShadowEffect",
-					"sid": 612359217433041,
+					"sid": 291863183228357,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"ShadowFade\"",
 						"property": "offsetY",
 						"end-value": "300",
-						"time": "2",
+						"time": "1",
 						"ease": "easeinsine",
 						"destroy-on-complete": "no",
 						"loop": "no",
@@ -56,41 +56,62 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 954146817706329,
+					"sid": 466908510960015,
 					"parameters": {
-						"seconds": "3"
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "TitleEffect",
+					"sid": 386909603562421,
+					"parameters": {
+						"y": "100"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "TitleEffect",
+					"sid": 565133958855972,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "TitleEffect",
+					"sid": 713030788610152,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FadeOut\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "noease",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 213042732748436,
+					"parameters": {
+						"seconds": "2"
 					}
 				},
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 528688297153075,
+					"sid": 546070736120225,
 					"parameters": {
 						"layout": "Layout"
 					}
 				}
 			],
 			"sid": 306310840278503
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-x-seconds",
-					"objectClass": "System",
-					"sid": 703202992252178,
-					"parameters": {
-						"interval-seconds": "1"
-					}
-				}
-			],
-			"actions": [
-				{
-					"type": "script",
-					"script": ""
-				}
-			],
-			"sid": 293522500110239
 		}
 	],
 	"sid": 366100444700946

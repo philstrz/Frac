@@ -291,27 +291,11 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Particles",
-			"description": "",
+			"title": "Opponent",
+			"description": "Fade in the opponent paddle",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 257641937244865,
-							"parameters": {
-								"seconds": "2"
-							}
-						}
-					],
-					"sid": 621064812757423
-				}
-			],
-			"sid": 103375851958602
+			"children": [],
+			"sid": 140611228501706
 		}
 	],
 	"sid": 445921654178940
