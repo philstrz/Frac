@@ -119,7 +119,7 @@ class Ball extends globalThis.InstanceType.Ball
 				new Coroutine(this.squash(direction.left, this.speed / initial), "squash");
 				
 				// Boop
-				camera.boop(-5 * this.speed / initial, 0, 0.25);
+				camera.boop(-4 * this.speed / initial, 0, 0.25);
 				
 				// Reduce speed after first hit
 				this.speed = final;
@@ -144,7 +144,7 @@ class Ball extends globalThis.InstanceType.Ball
 		
 		if (this.x > right)
 		{
-			if (this.y >= opponent.y - Globals.paddle.reach && this.y <= opponent.y + Globals.paddle.reach)
+			if (this.y > opponent.y - Globals.paddle.reach && this.y < opponent.y + Globals.paddle.reach)
 			{
 				/*
 				const delta = this.x - right;

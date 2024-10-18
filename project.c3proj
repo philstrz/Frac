@@ -49,13 +49,6 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "TiledBg",
-			"name": "Tiled Background",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
 			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
@@ -98,7 +91,6 @@
 				"items": [
 					"Shadow",
 					"ShadowEffect",
-					"TiledBackground",
 					"Title",
 					"TitleEffect"
 				],

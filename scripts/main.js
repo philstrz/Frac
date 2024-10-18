@@ -80,7 +80,7 @@ function CreatePaddles(runtime)
 	paddle.object = runtime.objects.Paddle.createInstance("Pong", x, y, true);
 	
 	x = Globals.offset.x + opponent.x;
-	y -= 120;
+	y -= 200;
 	opponent.object = runtime.objects.Paddle.createInstance("Pong", x, y, true);
 	opponent.object.angleDegrees = 180;
 	opponent.y = y;

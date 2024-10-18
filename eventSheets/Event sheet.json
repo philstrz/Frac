@@ -131,9 +131,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 594919027176460,
+					"sid": 864187371225286,
 					"parameters": {
-						"seconds": "2"
+						"seconds": "1"
 					}
 				},
 				{
@@ -156,9 +156,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 996716293891134,
+					"sid": 665933477443722,
 					"parameters": {
-						"seconds": "2"
+						"seconds": "1"
 					}
 				},
 				{
@@ -437,11 +437,48 @@
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
 									"sid": 124055776368326
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ProgressFill",
+									"sid": 133084212002673,
+									"parameters": {
+										"instance-variable": "scale",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 512140758034275
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 726983498720146
+						},
+						{
+							"id": "is-any-playing",
+							"objectClass": "ProgressFill",
+							"sid": 540565708420298,
+							"behaviorType": "Tween"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ProgressFill",
+							"sid": 274552173143117,
+							"parameters": {
+								"instance-variable": "scale",
+								"value": "ProgressFill.Tween.Value(\"scale\")"
+							}
+						}
+					],
+					"sid": 586307847418491
 				}
 			],
 			"sid": 412010667052264
