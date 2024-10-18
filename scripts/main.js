@@ -33,7 +33,11 @@ runOnStartup(async runtime =>
 	runtime.objects.Ball.setInstanceClass(Ball);
 	runtime.objects.Fingers.setInstanceClass(Fingers);
 	
-	runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
+	//runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
+	for (const layout of runtime.getAllLayouts())
+	{
+		if (layout.name == "Layout") layout.addEventListener("beforelayoutstart", () => OnBeforeGameStart(runtime))
+	}
 });
 
 async function OnBeforeProjectStart(runtime)
@@ -41,17 +45,22 @@ async function OnBeforeProjectStart(runtime)
 	// Code to run just before 'On start of layout' on
 	// the first layout. Loading has finished and initial
 	// instances are created and available to use here.
-	
+}
+
+async function OnBeforeGameStart(runtime)
+{
 	runtime.addEventListener("tick", () => Tick(runtime));
-	Coroutine.Init(runtime);
 	
-	// Get object references
+	Coroutine.Init(runtime);
+	// Create the generator object
+	generator = new Generator(runtime);
+	
 	CreatePaddles(runtime)
 	progress = runtime.objects.ProgressFill.getFirstInstance();
 	fingers = runtime.objects.Fingers.getFirstInstance();
 	
-	// Create the generator object
-	generator = new Generator(runtime);
+	
+	
 }
 
 function CreatePaddles(runtime)
@@ -121,7 +130,7 @@ export function AdjustProgress()
 	progress.height = Globals.offset.y + Globals.paddle.bottom - paddle.y;
 }
 
-export function Next(runtime)
+export function Next()
 {
 	const {n, d} = generator.Next();
 	

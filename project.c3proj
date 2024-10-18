@@ -85,7 +85,9 @@
 			"Fingers",
 			"BallTrail",
 			"BallTrailShadow",
-			"Explode"
+			"Explode",
+			"Title",
+			"Shadow"
 		],
 		"subfolders": []
 	},
@@ -98,13 +100,15 @@
 	"layouts": {
 		"items": [
 			"Layout",
-			"repo"
+			"repo",
+			"Title"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet"
+			"Event sheet",
+			"Title"
 		],
 		"subfolders": []
 	},
