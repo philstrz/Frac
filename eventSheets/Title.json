@@ -56,15 +56,16 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 466908510960015,
+					"sid": 214861770518534,
 					"parameters": {
-						"seconds": "2"
+						"seconds": "1"
 					}
 				},
 				{
 					"id": "set-y",
 					"objectClass": "TitleEffect",
 					"sid": 386909603562421,
+					"disabled": true,
 					"parameters": {
 						"y": "100"
 					}
@@ -73,6 +74,7 @@
 					"id": "set-opacity",
 					"objectClass": "TitleEffect",
 					"sid": 565133958855972,
+					"disabled": true,
 					"parameters": {
 						"opacity": "0"
 					}
@@ -81,6 +83,7 @@
 					"id": "tween-one-property",
 					"objectClass": "TitleEffect",
 					"sid": 713030788610152,
+					"disabled": true,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"FadeOut\"",
@@ -95,17 +98,57 @@
 					}
 				},
 				{
+					"id": "tween-one-property",
+					"objectClass": "TitleEffect",
+					"sid": 205366085949455,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"TitleFade\"",
+						"property": "offsetY",
+						"end-value": "100",
+						"time": "1",
+						"ease": "easeinsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "ShadowEffect",
+					"sid": 464754044035140,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"ShadowFade\"",
+						"property": "offsetY",
+						"end-value": "100",
+						"time": "1",
+						"ease": "easeinsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 213042732748436,
+					"sid": 520560428241183,
+					"disabled": true,
 					"parameters": {
-						"seconds": "2"
+						"seconds": "3"
 					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 738605270465863
 				},
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 546070736120225,
+					"sid": 259792911207034,
 					"parameters": {
 						"layout": "Layout"
 					}

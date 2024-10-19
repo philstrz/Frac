@@ -68,10 +68,8 @@
 		"items": [
 			"Paddle",
 			"Mouse",
-			"Camera",
 			"PaddleShadow",
 			"Ball",
-			"BallLauncher",
 			"FrameRate",
 			"Opponent",
 			"BallShadow",
@@ -81,10 +79,10 @@
 			"ProgressBar",
 			"ProgressFill",
 			"Finger",
-			"Fingers",
 			"BallTrail",
 			"BallTrailShadow",
-			"Explode"
+			"Explode",
+			"Score"
 		],
 		"subfolders": [
 			{
@@ -96,6 +94,16 @@
 				],
 				"subfolders": [],
 				"name": "Title"
+			},
+			{
+				"items": [
+					"BallLauncher",
+					"Camera",
+					"Fingers",
+					"ScoreBoard"
+				],
+				"subfolders": [],
+				"name": "Debug"
 			}
 		]
 	},
@@ -364,7 +372,7 @@
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "none",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
@@ -374,5 +382,5 @@
 	},
 	"viewportWidth": 320,
 	"viewportHeight": 200,
-	"firstLayout": "Layout"
+	"firstLayout": "Title"
 }

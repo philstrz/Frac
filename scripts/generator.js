@@ -15,6 +15,8 @@ const min = 2;
 // Previous fraction
 let v = 0;
 
+const tutorial = 5;
+
 // How fast to fade in/out
 const timeScale = 2;
 
@@ -42,14 +44,22 @@ class Generator
 		denominator = fraction.getChildAt(1);
 	}
 	
-	Next()
-	{		
-		// Get a random denominator
-		const u = Math.random();
-		const d = Math.floor( min + Math.sqrt(u) * (Globals.level - min + 1) );
+	next()
+	{	
+		let d = 1;
+		if (Globals.level <= tutorial)
+		{
+			d = Globals.level;
+		}
+		else
+		{
+			// Get a random denominator
+			const u = Math.random();
+			d = Math.floor( min + Math.sqrt(u) * (Globals.level - min + 1) );
+		}
 		
 		// Increment denominator
-		if (d == Globals.level) Globals.level++;
+		//if (d == Globals.level) Globals.level++;
 	
 		const n = this.GetNumerator(d);
 		
@@ -61,10 +71,10 @@ class Generator
 		}
 	}
 	
-	Launch()
+	launch(d)
 	{
 		const ball = runtime.objects.Ball.createInstance("Pong", this.x, this.y, true);
-		ball.Set(v);
+		ball.set(v, d);
 	}
 	
 	GetNumerator(d)
@@ -101,11 +111,11 @@ class Generator
 		numerator.text = String(n);
 		denominator.text = String(d);
 		
-		new Coroutine(this.FadeIn(), "FadeIn");
+		new Coroutine(this.FadeIn(d), "FadeIn");
 		return;
 	}
 	
-	* FadeIn()
+	* FadeIn(d)
 	{
 		let t = 0;
 		while (t < 1)
@@ -119,7 +129,7 @@ class Generator
 		fraction.height = fractionHeight;
 		yield Coroutine.Wait(2);
 		
-		this.Launch();
+		this.launch(d);
 		return;
 	}
 }

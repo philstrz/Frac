@@ -116,59 +116,6 @@
 			"sid": 865853635551837
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-x-seconds",
-					"objectClass": "System",
-					"sid": 587908383605079,
-					"parameters": {
-						"interval-seconds": "4"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 864187371225286,
-					"parameters": {
-						"seconds": "1"
-					}
-				},
-				{
-					"type": "script",
-					"script": "Next();"
-				}
-			],
-			"sid": 670223002920429
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 766242758951484
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 665933477443722,
-					"parameters": {
-						"seconds": "1"
-					}
-				},
-				{
-					"type": "script",
-					"script": "Next();"
-				}
-			],
-			"sid": 389181812228956
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Debug",
@@ -321,6 +268,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "ScoreBoard",
+							"sid": 298188327176203,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
 						{
 							"id": "set-size",
 							"objectClass": "ProgressBar",

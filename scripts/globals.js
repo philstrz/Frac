@@ -19,7 +19,7 @@ const Globals = {
 		bottom: 200 - 8,
 	},
 	level: 2,
-	fingersClose: 12,
+	fingersClose: 3,
 };
 
 export default Globals;

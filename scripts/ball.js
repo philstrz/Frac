@@ -59,13 +59,16 @@ class Ball extends globalThis.InstanceType.Ball
 	}
 	
 	// Immediately after ball is created, set its initial direction
-	Set(fraction)
+	set(fraction, denominator)
 	{	
 		// ball position minus the point where it should hit the paddle
 		const x = (Globals.ball.left + Globals.offset.x) - this.x;
 		const y = (fraction * ( Globals.paddle.top - Globals.paddle.bottom ) + Globals.paddle.bottom + Globals.offset.y) - this.y;
 		// convert to angle, in degrees
 		this.theta = Math.atan2(y, x) * 180 / Math.PI;
+		
+		// Store denominator to increment levels
+		this.denominator = denominator;
 	}
 	
 	// Check if the ball is at the top or bottom of the game
@@ -124,8 +127,8 @@ class Ball extends globalThis.InstanceType.Ball
 				// Reduce speed after first hit
 				this.speed = final;
 				
-				
-				
+				// Increment level
+				if (this.denominator == Globals.level) Globals.level++;
 			}
 			else
 			{
@@ -160,7 +163,6 @@ class Ball extends globalThis.InstanceType.Ball
 			else
 			{
 				scores.player += 1;
-				console.log(scores.player, scores.opponent);
 				this.explode();
 			}
 			

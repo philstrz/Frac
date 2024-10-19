@@ -88,6 +88,10 @@ function CreatePaddles(runtime)
 	opponent.object.setSize(0, 0);
 }
 
+// Keep track of time once level starts
+const rate = 4;
+let time = 3;
+
 function Tick(runtime)
 {
 	// Code to run every tick
@@ -100,6 +104,14 @@ function Tick(runtime)
 	};
 	
 	camera.tick();
+	
+	// Countdown to launch balls
+	time += runtime.dt;
+	if (time >= rate)
+	{
+		time = 0;
+		next(runtime);
+	}
 }
 
 let opponentActive = false;
@@ -184,15 +196,21 @@ export function AdjustProgress()
 	progress.height = (Globals.offset.y + Globals.paddle.bottom - paddle.y) * progress.instVars.scale;
 }
 
-export function Next()
+function next(runtime)
 {
-	const {n, d} = generator.Next();
+	const {n, d} = generator.next();
 	
-	if (Globals.level == Globals.fingersClose)
+	if (scores.player == Globals.fingersClose)
 	{
 		fingers.close();
+		Globals.fingersClose = -10;
+		
+		for (const board of runtime.objects.ScoreBoard.getAllInstances())
+		{
+			board.behaviors.Tween.startTween("size", [16,16], 0.5, "out-cubic");
+		}
 	}
-	else if (Globals.level < Globals.fingersClose)
+	else if (scores.player < Globals.fingersClose)
 	{
 		fingers.next(d);
 	}
