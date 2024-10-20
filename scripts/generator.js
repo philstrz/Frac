@@ -72,7 +72,7 @@ class Generator
 	
 	place()
 	{
-		runtime.objects.GrowingBall.createInstance("Pong", this.x, this.y);
+		runtime.objects.GrowingBall.createInstance("Pong", this.x, this.y, true);
 	}
 	
 	launch(d)

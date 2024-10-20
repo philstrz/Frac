@@ -5,7 +5,7 @@ import Ease from "./utilities/ease.js";
 
 
 //let theta = 0;
-const initial = 500;
+const initial = 800;
 const final = 200;
 
 const size = 16;

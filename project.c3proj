@@ -79,7 +79,8 @@
 			"Finger",
 			"Explode",
 			"Score",
-			"Flow"
+			"Flow",
+			"Particle"
 		],
 		"subfolders": [
 			{

@@ -447,6 +447,26 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "deltaTime",
+					"type": "number",
+					"initialValue": "0.1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 449228392653078
+				},
+				{
+					"eventType": "variable",
+					"name": "offset",
+					"type": "number",
+					"initialValue": "32",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 340705407906475
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -485,6 +505,108 @@
 						}
 					],
 					"sid": 143047986076221
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 755962775334486,
+							"parameters": {
+								"interval-seconds": "deltaTime"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "GrowingBall",
+							"sid": 743238851067415,
+							"parameters": {
+								"instance-variable": "remaining",
+								"value": "deltaTime"
+							}
+						}
+					],
+					"sid": 225086095913382,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GrowingBall",
+									"sid": 968975879244909,
+									"parameters": {
+										"instance-variable": "remaining",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "GrowingBall",
+									"sid": 199394395888792,
+									"parameters": {
+										"object": "Particle",
+										"layer": "\"Pong\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Particle",
+									"sid": 895372697083322,
+									"parameters": {
+										"x": "GrowingBall.X + (random(1) - 0.5) * offset",
+										"y": "GrowingBall.Y + (random(1) - 0.5) * offset"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Particle",
+									"sid": 149756857399854,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "size",
+										"end-x": "8",
+										"end-y": "8",
+										"time": "GrowingBall.remaining",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Particle",
+									"sid": 355301149394408,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "GrowingBall.X",
+										"end-y": "GrowingBall.Y",
+										"time": "GrowingBall.remaining",
+										"ease": "easeinsine",
+										"destroy-on-complete": "yes",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 822911636864799
+						}
+					]
 				}
 			],
 			"sid": 359198844231216
