@@ -417,7 +417,7 @@
 						"scale": 1,
 						"character-spacing": 2,
 						"line-height": 0,
-						"horizontal-alignment": "center",
+						"horizontal-alignment": "left",
 						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
@@ -462,9 +462,9 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 180,
+						"x": 210,
 						"y": 130,
-						"width": 60,
+						"width": 80,
 						"height": 40,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -490,7 +490,7 @@
 						"scale": 1,
 						"character-spacing": 2,
 						"line-height": 0,
-						"horizontal-alignment": "center",
+						"horizontal-alignment": "right",
 						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
@@ -535,9 +535,9 @@
 						"expanded": true
 					},
 					"world": {
-						"x": 460,
+						"x": 430,
 						"y": 130,
-						"width": 60,
+						"width": 80,
 						"height": 40,
 						"originX": 0.5,
 						"originY": 0.5,

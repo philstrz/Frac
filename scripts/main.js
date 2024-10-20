@@ -115,7 +115,6 @@ function Tick(runtime)
 }
 
 let opponentActive = false;
-const opponentLevel = 6;
 function MoveOpponent(runtime)
 {
 
@@ -148,7 +147,7 @@ function MoveOpponent(runtime)
 	}
 	else
 	{
-		if (Globals.level == opponentLevel)
+		if (Globals.level == Globals.tutorial)
 		{
 			const y = opponent.y + opponent.dir * runtime.dt * opponent.speed;
 			const top = Globals.offset.y + Globals.paddle.top;
@@ -199,11 +198,19 @@ export function AdjustProgress()
 function next(runtime)
 {
 	const {n, d} = generator.next();
+	console.log(scores.player, scores.opponent);
 	
 	if (scores.player == Globals.fingersClose)
 	{
 		fingers.close();
 		Globals.fingersClose = -10;
+		
+		scores.player = 0;
+		scores.opponent = 0;
+		
+		const scoreKeepers = runtime.objects.Score.getAllInstances();
+		scoreKeepers[0].text = "0";
+		scoreKeepers[1].text = "0";
 		
 		for (const board of runtime.objects.ScoreBoard.getAllInstances())
 		{

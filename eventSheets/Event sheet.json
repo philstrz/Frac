@@ -272,6 +272,7 @@
 							"id": "set-size",
 							"objectClass": "ScoreBoard",
 							"sid": 298188327176203,
+							"disabled": true,
 							"parameters": {
 								"width": "0",
 								"height": "0"

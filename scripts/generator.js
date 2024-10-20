@@ -15,8 +15,6 @@ const min = 2;
 // Previous fraction
 let v = 0;
 
-const tutorial = 5;
-
 // How fast to fade in/out
 const timeScale = 2;
 
@@ -47,7 +45,7 @@ class Generator
 	next()
 	{	
 		let d = 1;
-		if (Globals.level <= tutorial)
+		if (Globals.level <= Globals.tutorial)
 		{
 			d = Globals.level;
 		}

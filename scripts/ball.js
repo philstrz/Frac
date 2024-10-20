@@ -132,9 +132,10 @@ class Ball extends globalThis.InstanceType.Ball
 			}
 			else
 			{
-				this.explode();
 				camera.shake(10, 0.5);
 				scores.opponent += 1;
+				this.updateScores();
+				this.explode();
 			}
 		}
 	}
@@ -163,10 +164,18 @@ class Ball extends globalThis.InstanceType.Ball
 			else
 			{
 				scores.player += 1;
+				this.updateScores();
 				this.explode();
 			}
 			
 		}
+	}
+	
+	updateScores()
+	{
+		const scoreKeepers = this.runtime.objects.Score.getAllInstances();
+		scoreKeepers[0].text = String(scores.player);
+		scoreKeepers[1].text = String(scores.opponent);
 	}
 	
 	// Leave an explosion particle effect and destroy the ball
