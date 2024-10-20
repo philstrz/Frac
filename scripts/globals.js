@@ -21,6 +21,7 @@ const Globals = {
 	level: 2,
 	fingersClose: 5,
 	tutorial: 5,
+	max: 10,
 };
 
 export default Globals;

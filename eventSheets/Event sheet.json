@@ -272,7 +272,6 @@
 							"id": "set-size",
 							"objectClass": "ScoreBoard",
 							"sid": 298188327176203,
-							"disabled": true,
 							"parameters": {
 								"width": "0",
 								"height": "0"
@@ -439,6 +438,56 @@
 				}
 			],
 			"sid": 412010667052264
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Ball grows in",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "GrowingBall",
+							"sid": 563164388551243
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "GrowingBall",
+							"sid": 838218840567312,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "GrowingBall",
+							"sid": 740033069947082,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Grow\"",
+								"property": "size",
+								"end-x": "16",
+								"end-y": "16",
+								"time": "2",
+								"ease": "noease",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 143047986076221
+				}
+			],
+			"sid": 359198844231216
 		}
 	],
 	"sid": 445921654178940

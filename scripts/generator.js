@@ -45,6 +45,7 @@ class Generator
 	next()
 	{	
 		let d = 1;
+		Globals.level = Globals.level > Globals.max ? Globals.max : Globals.level;
 		if (Globals.level <= Globals.tutorial)
 		{
 			d = Globals.level;
@@ -67,6 +68,11 @@ class Generator
 			n: n,
 			d: d,
 		}
+	}
+	
+	place()
+	{
+		runtime.objects.GrowingBall.createInstance("Pong", this.x, this.y);
 	}
 	
 	launch(d)
@@ -125,9 +131,11 @@ class Generator
 		}
 		fraction.width = fractionWidth;
 		fraction.height = fractionHeight;
-		yield Coroutine.Wait(2);
 		
+		this.place();
+		yield Coroutine.Wait(2);
 		this.launch(d);
+		
 		return;
 	}
 }

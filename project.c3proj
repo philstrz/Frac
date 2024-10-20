@@ -69,20 +69,17 @@
 			"Paddle",
 			"Mouse",
 			"PaddleShadow",
-			"Ball",
 			"FrameRate",
 			"Opponent",
-			"BallShadow",
 			"Fraction",
 			"Numerator",
 			"Denominator",
 			"ProgressBar",
 			"ProgressFill",
 			"Finger",
-			"BallTrail",
-			"BallTrailShadow",
 			"Explode",
-			"Score"
+			"Score",
+			"Flow"
 		],
 		"subfolders": [
 			{
@@ -97,13 +94,24 @@
 			},
 			{
 				"items": [
-					"BallLauncher",
 					"Camera",
 					"Fingers",
-					"ScoreBoard"
+					"ScoreBoard",
+					"BallLauncher"
 				],
 				"subfolders": [],
 				"name": "Debug"
+			},
+			{
+				"items": [
+					"Ball",
+					"BallShadow",
+					"BallTrail",
+					"BallTrailShadow",
+					"GrowingBall"
+				],
+				"subfolders": [],
+				"name": "Ball"
 			}
 		]
 	},
@@ -183,6 +191,14 @@
 					"name": "camera.js",
 					"type": "application/javascript",
 					"sid": 724010253313930,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "growingBall.js",
+					"type": "application/javascript",
+					"sid": 863427264273616,
 					"script-info": {
 						"purpose": "none"
 					}

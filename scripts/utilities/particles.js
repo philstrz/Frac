@@ -1,7 +1,15 @@
-
+let runtime = null;
 
 export default class Particles
 {
-	constructor()
-	{}
+
+	params = 
+	{
+		
+	}
+
+	constructor(object, params={})
+	{
+		runtime = object.runtime;
+	}
 }
