@@ -725,11 +725,11 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 703408735494248,
+									"sid": 223831791855219,
 									"parameters": {
 										"name": "\"\"",
 										"start-index": "1",
-										"end-index": "10"
+										"end-index": "5"
 									}
 								}
 							],
@@ -750,9 +750,9 @@
 								{
 									"id": "set-scale",
 									"objectClass": "BouncyBox2",
-									"sid": 496631292724038,
+									"sid": 592999803650240,
 									"parameters": {
-										"scale": "4 + random(4)"
+										"scale": "8 + random(4)"
 									}
 								}
 							],
@@ -764,11 +764,11 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 378287352632716,
+									"sid": 984790286657361,
 									"parameters": {
 										"name": "\"\"",
 										"start-index": "1",
-										"end-index": "10"
+										"end-index": "5"
 									}
 								}
 							],
