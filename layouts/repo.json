@@ -1042,6 +1042,217 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "BouncyBox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 36,
+					"sid": 901239124001911,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0,
+								"elasticity": 0.5,
+								"linear-damping": 0,
+								"angular-damping": 0.5,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 901239124001911,
+						"expanded": true
+					},
+					"world": {
+						"x": 140,
+						"y": 170,
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0,
+						"blendMode": "source-atop"
+					}
+				},
+				{
+					"type": "BouncyBox2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 40,
+					"sid": 496617890478837,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0,
+								"elasticity": 0.5,
+								"linear-damping": 0,
+								"angular-damping": 0.5,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 40,
+						"children": [
+							{
+								"uid": 41,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": false,
+									"h": false,
+									"a": false,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 496617890478837,
+						"expanded": true
+					},
+					"world": {
+						"x": 170,
+						"y": 170,
+						"width": 8,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0.7853981633974483,
+						"zElevation": 0,
+						"blendMode": "source-atop"
+					}
+				},
+				{
+					"type": "BouncyFiller",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 41,
+					"sid": 583041984733914,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 40,
+						"uid": 41,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": false,
+							"h": false,
+							"a": false,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 583041984733914,
+						"expanded": true
+					},
+					"world": {
+						"x": 170,
+						"y": 170,
+						"width": 8,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0.7853981633974483,
+						"zElevation": 0,
+						"blendMode": "source-atop"
+					}
 				}
 			],
 			"sid": 748600227359556,
@@ -1080,7 +1291,20 @@
 	},
 	"sid": 285001045890407,
 	"nonworld-instances": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "alphaclamp2",
+			"name": "AlphaClamp",
+			"instance": {
+				"isEnabled": true,
+				"parameters": {
+					"threshold": 0.5,
+					"lower-clamp": 0,
+					"upper-clamp": 1
+				}
+			}
+		}
+	],
 	"width": 640,
 	"height": 400,
 	"unboundedScrolling": false,

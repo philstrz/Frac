@@ -1,0 +1,65 @@
+{
+	"name": "BouncyBox",
+	"plugin-id": "Sprite",
+	"sid": 831107466091535,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 420339168129093
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1,
+						"height": 1,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 86489,
+						"collisionPoly": {
+							"points": [
+								0.3749999999999998,
+								0.3749999999999998,
+								0.4973958333333333,
+								0.3307291666666666,
+								0.6197916666666662,
+								0.36979166666666646,
+								0.6666666666666662,
+								0.5052083333333333,
+								0.6406249999999998,
+								0.6197916666666665,
+								0.5026041666666666,
+								0.6718749999999993,
+								0.3645833333333332,
+								0.6250000000000001,
+								0.328125,
+								0.5026041666666666
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 883434335476351,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

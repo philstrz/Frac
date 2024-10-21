@@ -1,14 +1,14 @@
 {
-	"name": "Camera",
+	"name": "BucketLid",
 	"plugin-id": "Sprite",
-	"sid": 118761804821005,
+	"sid": 662052856701651,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [
 		{
-			"behaviorId": "scrollto",
-			"name": "ScrollTo",
-			"sid": 333457619624634
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 933656176024301
 		}
 	],
 	"effectTypes": [],
@@ -19,19 +19,19 @@
 					{
 						"width": 1,
 						"height": 1,
-						"originX": 0.504,
+						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 9378755,
+						"imageSpriteId": 2517748,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 815988843036170,
+				"sid": 745426682321955,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

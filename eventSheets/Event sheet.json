@@ -402,6 +402,15 @@
 										"instance-variable": "scale",
 										"value": "1"
 									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 863081420655466,
+									"parameters": {
+										"layer": "\"Bouncy\"",
+										"visibility": "visible"
+									}
 								}
 							],
 							"sid": 512140758034275
@@ -610,6 +619,242 @@
 				}
 			],
 			"sid": 359198844231216
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Bouncing Balls",
+			"description": "Give the progress bar some life",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 357932323789947
+						}
+					],
+					"actions": [
+						{
+							"id": "set-velocity",
+							"objectClass": "Bucket",
+							"sid": 744754487577207,
+							"behaviorType": "Physics",
+							"parameters": {
+								"x-component": "0",
+								"y-component": "((ProgressFill.Y - ProgressFill.Height) - Bucket.Y) * 10"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BouncyFiller",
+							"sid": 540646316127211,
+							"parameters": {
+								"width": "abs( ProgressFill.Y - BouncyFiller.Y )",
+								"height": "abs( ProgressFill.Y - BouncyFiller.Y )"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "BouncyFiller",
+							"sid": 207934802089074,
+							"parameters": {
+								"angle": "45"
+							}
+						}
+					],
+					"sid": 667940570120602
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 843686451269669
+						}
+					],
+					"actions": [
+						{
+							"id": "set-world-gravity",
+							"objectClass": "Bucket",
+							"sid": 510339747764123,
+							"behaviorType": "Physics",
+							"parameters": {
+								"gravity": "20"
+							}
+						},
+						{
+							"id": "enabledisable-collisions",
+							"objectClass": "Bucket",
+							"sid": 506037676869378,
+							"behaviorType": "Physics",
+							"parameters": {
+								"object": "BucketLid",
+								"state": "disable"
+							}
+						},
+						{
+							"id": "enabledisable-collisions",
+							"objectClass": "Bucket",
+							"sid": 150200514668631,
+							"behaviorType": "Physics",
+							"parameters": {
+								"object": "BucketTop",
+								"state": "disable"
+							}
+						},
+						{
+							"id": "enabledisable-collisions",
+							"objectClass": "BucketLid",
+							"sid": 504209938909266,
+							"behaviorType": "Physics",
+							"parameters": {
+								"object": "BucketTop",
+								"state": "disable"
+							}
+						}
+					],
+					"sid": 641500378074287,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 703408735494248,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "1",
+										"end-index": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 126831300289375,
+									"parameters": {
+										"object-to-create": "BouncyBox2",
+										"layer": "\"Bouncy\"",
+										"x": "Bucket.X + random(2)",
+										"y": "Bucket.Y + random(2)",
+										"create-hierarchy": true,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "BouncyBox2",
+									"sid": 496631292724038,
+									"parameters": {
+										"scale": "4 + random(4)"
+									}
+								}
+							],
+							"sid": 783978945769120
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 378287352632716,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "1",
+										"end-index": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 572020923978153,
+									"parameters": {
+										"object-to-create": "BouncyBox",
+										"layer": "\"Bouncy\"",
+										"x": "Bucket.X + random(2)",
+										"y": "Bucket.Y + random(2) + 8",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "BouncyBox",
+									"sid": 950733384876864,
+									"parameters": {
+										"scale": "12 + random(4)"
+									}
+								},
+								{
+									"id": "enabledisable-collisions",
+									"objectClass": "BouncyBox",
+									"sid": 224141941815826,
+									"behaviorType": "Physics",
+									"parameters": {
+										"object": "BucketTop",
+										"state": "disable"
+									}
+								}
+							],
+							"sid": 661077783597589
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "BouncyBox",
+							"sid": 660886516687598
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "BouncyBox",
+							"sid": 202927430699451,
+							"parameters": {
+								"x": "Bucket.X",
+								"y": "Bucket.Y"
+							}
+						}
+					],
+					"sid": 917691419777880
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "BouncyBox2",
+							"sid": 114294410889145
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "BouncyBox2",
+							"sid": 172032903719094,
+							"parameters": {
+								"x": "Bucket.X",
+								"y": "Bucket.Y"
+							}
+						}
+					],
+					"sid": 545294233218412
+				}
+			],
+			"sid": 137142685267562
 		}
 	],
 	"sid": 445921654178940

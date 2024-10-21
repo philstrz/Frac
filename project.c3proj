@@ -50,6 +50,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Physics",
+			"name": "Physics",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
 			"author": "Scirra",
@@ -59,6 +66,13 @@
 			"type": "behavior",
 			"id": "scrollto",
 			"name": "Scroll To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "alphaclamp2",
+			"name": "Alpha clamp",
 			"author": "Scirra",
 			"bundled": false
 		}
@@ -80,7 +94,15 @@
 			"Explode",
 			"Score",
 			"Flow",
-			"Particle"
+			"Particle",
+			"Bucket",
+			"BouncyBox",
+			"BlendIn",
+			"BlendOut",
+			"BucketLid",
+			"BucketTop",
+			"BouncyBox2",
+			"BouncyFiller"
 		],
 		"subfolders": [
 			{

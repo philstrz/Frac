@@ -97,7 +97,7 @@ function Tick(runtime)
 	// Code to run every tick
 	MoveOpponent(runtime);
 	MovePaddle(runtime);
-	AdjustProgress();
+	AdjustProgress(runtime);
 	
 	for (const ball of runtime.objects.Ball.instances()) {
 		ball.Update();
@@ -167,6 +167,7 @@ function MovePaddle(runtime)
 {
 	//let y = runtime.mouse.getMouseY("Pong");
 	let y = paddle.y;
+	//let y = Math.random() * 400;
 	
 	let top = Globals.offset.y;
 	let bottom = top + runtime.viewportHeight;
@@ -190,8 +191,23 @@ function MovePaddle(runtime)
 	paddle.object.y = y;
 }
 
-export function AdjustProgress()
+function AdjustProgress(runtime)
 {
+	/*
+	let y = paddle.y;
+	let min = 0;
+	for (const box of runtime.objects.BouncyBox.getAllInstances())
+	{
+		min = box.y > min ? box.y : min;
+	}
+	console.log(min, y);
+	
+	
+	if ( y > min ) console.log(y, min);
+
+	y = y > min ? min : y;
+	progress.height = (Globals.offset.y + Globals.paddle.bottom - y) * progress.instVars.scale;
+	*/
 	progress.height = (Globals.offset.y + Globals.paddle.bottom - paddle.y) * progress.instVars.scale;
 }
 
