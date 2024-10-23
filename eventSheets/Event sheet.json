@@ -335,6 +335,14 @@
 									}
 								},
 								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 796443191739007,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
 									"id": "tween-two-properties",
 									"objectClass": "Paddle",
 									"sid": 825197685727735,
@@ -640,11 +648,11 @@
 						{
 							"id": "set-velocity",
 							"objectClass": "Bucket",
-							"sid": 744754487577207,
+							"sid": 719467670271965,
 							"behaviorType": "Physics",
 							"parameters": {
 								"x-component": "0",
-								"y-component": "((ProgressFill.Y - ProgressFill.Height) - Bucket.Y) * 10"
+								"y-component": "((ProgressFill.Y - ProgressFill.Height) - Bucket.Y) * 20"
 							}
 						},
 						{
