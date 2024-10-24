@@ -1,6 +1,7 @@
 import Globals from "./globals.js";
 import Ease from "./utilities/ease.js";
 import Coroutine from "./utilities/coroutine.js"
+import { scores } from "./main.js";
 
 let fraction = null;
 let numerator = null;
@@ -45,16 +46,21 @@ class Generator
 	next()
 	{	
 		let d = 1;
-		Globals.level = Globals.level > Globals.max ? Globals.max : Globals.level;
+		//Globals.level = Globals.level > Globals.max ? Globals.max : Globals.level;
+		console.log("Level: " + Globals.level);
 		if (Globals.level <= Globals.tutorial)
 		{
 			d = Globals.level;
 		}
 		else
 		{
+			let max = scores.player - scores.opponent + 2;
+			max = max < 4 ? 4 : max;
+			max = max > Globals.level ? Globals.level : max;
+			console.log("Max: " + max);
 			// Get a random denominator
 			const u = Math.random();
-			d = Math.floor( min + Math.sqrt(u) * (Globals.level - min + 1) );
+			d = Math.floor( min + Math.sqrt(u) * (max - min + 1) );
 		}
 		
 		// Increment denominator

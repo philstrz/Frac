@@ -5,7 +5,7 @@ import Ease from "./utilities/ease.js";
 
 
 //let theta = 0;
-const initial = 800;
+const initial = 1000;
 const final = 200;
 
 const size = 16;
@@ -13,6 +13,7 @@ const squashAmount = 0.125;
 const squashTimeScale = 60;
 
 let camera = null;
+let audio = null;
 
 const direction = 
 {
@@ -33,6 +34,8 @@ class Ball extends globalThis.InstanceType.Ball
 		super();
 		
 		if (!camera) camera = this.runtime.objects.Camera.getFirstInstance();
+		if (!audio) audio = this.runtime.objects.Audio;
+		console.log(audio);
 	}
 	
 	Update()
@@ -129,6 +132,8 @@ class Ball extends globalThis.InstanceType.Ball
 				
 				// Increment level
 				if (this.denominator == Globals.level) Globals.level++;
+				
+				audio.play("player_boop.webm");
 			}
 			else
 			{

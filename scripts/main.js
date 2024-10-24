@@ -214,7 +214,7 @@ function AdjustProgress(runtime)
 function next(runtime)
 {
 	const {n, d} = generator.next();
-	console.log(scores.player, scores.opponent);
+	//console.log(scores.player, scores.opponent);
 	
 	if (scores.player == Globals.fingersClose)
 	{

@@ -648,11 +648,11 @@
 						{
 							"id": "set-velocity",
 							"objectClass": "Bucket",
-							"sid": 719467670271965,
+							"sid": 581649551647117,
 							"behaviorType": "Physics",
 							"parameters": {
 								"x-component": "0",
-								"y-component": "((ProgressFill.Y - ProgressFill.Height) - Bucket.Y) * 20"
+								"y-component": "((ProgressFill.Y - ProgressFill.Height) - Bucket.Y) * 10"
 							}
 						},
 						{
@@ -772,7 +772,7 @@
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 984790286657361,
+									"sid": 626720161515487,
 									"parameters": {
 										"name": "\"\"",
 										"start-index": "1",

@@ -1066,7 +1066,7 @@
 								"friction": 0,
 								"elasticity": 0.5,
 								"linear-damping": 0,
-								"angular-damping": 0.5,
+								"angular-damping": 1,
 								"bullet": false,
 								"enabled": true
 							}
@@ -1078,7 +1078,7 @@
 					},
 					"world": {
 						"x": 140,
-						"y": 170,
+						"y": 120,
 						"width": 8,
 						"height": 8,
 						"originX": 0.5,
@@ -1253,10 +1253,74 @@
 						"zElevation": 0,
 						"blendMode": "source-atop"
 					}
+				},
+				{
+					"type": "BouncyBox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 42,
+					"sid": 523703691323947,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0,
+								"elasticity": 0.5,
+								"linear-damping": 0,
+								"angular-damping": 1,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 523703691323947,
+						"expanded": true
+					},
+					"world": {
+						"x": 170,
+						"y": 130,
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0,
+						"blendMode": "source-atop"
+					}
 				}
 			],
 			"sid": 748600227359556,
-			"effectTypes": [],
+			"effectTypes": [
+				{
+					"effectId": "alphaclamp2",
+					"name": "AlphaClamp",
+					"instance": {
+						"isEnabled": true,
+						"parameters": {
+							"threshold": 0.5,
+							"lower-clamp": 0,
+							"upper-clamp": 1
+						}
+					}
+				}
+			],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
@@ -1276,7 +1340,7 @@
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,
-			"forceOwnTexture": false,
+			"forceOwnTexture": true,
 			"renderingMode": "3d",
 			"drawOrder": "z-order",
 			"useRenderCells": false,
@@ -1291,20 +1355,7 @@
 	},
 	"sid": 285001045890407,
 	"nonworld-instances": [],
-	"effectTypes": [
-		{
-			"effectId": "alphaclamp2",
-			"name": "AlphaClamp",
-			"instance": {
-				"isEnabled": true,
-				"parameters": {
-					"threshold": 0.5,
-					"lower-clamp": 0,
-					"upper-clamp": 1
-				}
-			}
-		}
-	],
+	"effectTypes": [],
 	"width": 640,
 	"height": 400,
 	"unboundedScrolling": false,
