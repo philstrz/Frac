@@ -2,7 +2,7 @@ import Globals from "./globals.js";
 import { paddle, opponent, scores } from "./main.js";
 import Coroutine from "./utilities/coroutine.js";
 import Ease from "./utilities/ease.js";
-
+import AudioPlayer from "./utilities/audioPlayer.js";
 
 //let theta = 0;
 const initial = 1000;
@@ -34,8 +34,6 @@ class Ball extends globalThis.InstanceType.Ball
 		super();
 		
 		if (!camera) camera = this.runtime.objects.Camera.getFirstInstance();
-		if (!audio) audio = this.runtime.objects.Audio;
-		console.log(audio);
 	}
 	
 	Update()
@@ -90,6 +88,8 @@ class Ball extends globalThis.InstanceType.Ball
 			
 			this.theta = - this.theta;
 			//new Coroutine(this.squash(direction.up), "squash");
+			
+			AudioPlayer.PlaySound("wall_boop");
 		}
 		if (this.y > bottom)
 		{
@@ -101,6 +101,8 @@ class Ball extends globalThis.InstanceType.Ball
 			
 			this.theta = - this.theta;
 			//new Coroutine(this.squash(direction.down), "squash");
+			
+			AudioPlayer.PlaySound("wall_boop");
 		}
 	}
 	
@@ -133,7 +135,8 @@ class Ball extends globalThis.InstanceType.Ball
 				// Increment level
 				if (this.denominator == Globals.level) Globals.level++;
 				
-				audio.play("player_boop.webm");
+				// Play sound
+				AudioPlayer.PlaySound("player_boop");
 			}
 			else
 			{
@@ -165,6 +168,9 @@ class Ball extends globalThis.InstanceType.Ball
 				
 				// Squash
 				new Coroutine(this.squash(direction.right, this.speed / initial), "squash");
+				
+				// Play sound
+				AudioPlayer.PlaySound("opponent_boop");
 			}
 			else
 			{

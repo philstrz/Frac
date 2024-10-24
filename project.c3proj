@@ -261,6 +261,22 @@
 							"script-info": {
 								"purpose": "none"
 							}
+						},
+						{
+							"name": "audioManager.js",
+							"type": "application/javascript",
+							"sid": 576950526398108,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "audioPlayer.js",
+							"type": "application/javascript",
+							"sid": 883311647803145,
+							"script-info": {
+								"purpose": "none"
+							}
 						}
 					],
 					"subfolders": [],

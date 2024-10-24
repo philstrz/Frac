@@ -7,6 +7,8 @@ import Globals from "./globals.js";
 import Coroutine from "./utilities/coroutine.js";
 import Fingers from "./fingers.js";
 import Camera from "./camera.js";
+import AudioManager from "./utilities/audioManager.js";
+import AudioPlayer from "./utilities/audioPlayer.js";
 
 export const paddle = 
 {
@@ -35,10 +37,21 @@ export const scores =
 	opponent: 0,
 }
 
+let audioManager = null;
+
 runOnStartup(async runtime =>
 {
 	// Code to run on the loading screen.
 	// Note layouts, objects etc. are not yet available.
+	audioManager = new AudioManager(runtime);
+	AudioPlayer.Init(audioManager);
+	AudioPlayer.LoadSounds([
+		"explode.webm",
+		"opponent_boop.webm",
+		"player_boop.webm",
+		"wall_boop.webm",
+	]);
+	
 	runtime.objects.Ball.setInstanceClass(Ball);
 	runtime.objects.Fingers.setInstanceClass(Fingers);
 	runtime.objects.Camera.setInstanceClass(Camera);

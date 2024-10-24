@@ -863,6 +863,31 @@
 				}
 			],
 			"sid": 137142685267562
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Explode",
+					"sid": 391327141163618
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 771383947022918,
+					"parameters": {
+						"audio-file": "explode",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 402855675990353
 		}
 	],
 	"sid": 445921654178940
