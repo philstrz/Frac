@@ -311,6 +311,18 @@
 							"parameters": {
 								"height": "0"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 266877752387018,
+							"parameters": {
+								"audio-file": "grow",
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 353671115779123,
@@ -358,6 +370,18 @@
 										"loop": "no",
 										"ping-pong": "no",
 										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 856652289795330,
+									"parameters": {
+										"audio-file": "grow",
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
 									}
 								}
 							],
@@ -519,6 +543,18 @@
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 241215467240272,
+							"parameters": {
+								"audio-file": "buzz",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 143047986076221
@@ -624,6 +660,31 @@
 							"sid": 822911636864799
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Ball",
+							"sid": 432927690743832
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 547141628507670,
+							"parameters": {
+								"audio-file": "shoot",
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 672287628847109
 				}
 			],
 			"sid": 359198844231216

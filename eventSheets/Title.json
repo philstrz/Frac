@@ -62,6 +62,18 @@
 					}
 				},
 				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 679972247551901,
+					"parameters": {
+						"audio-file": "logo",
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
 					"id": "set-y",
 					"objectClass": "TitleEffect",
 					"sid": 386909603562421,
