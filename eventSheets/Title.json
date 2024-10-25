@@ -74,42 +74,6 @@
 					}
 				},
 				{
-					"id": "set-y",
-					"objectClass": "TitleEffect",
-					"sid": 386909603562421,
-					"disabled": true,
-					"parameters": {
-						"y": "100"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "TitleEffect",
-					"sid": 565133958855972,
-					"disabled": true,
-					"parameters": {
-						"opacity": "0"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "TitleEffect",
-					"sid": 713030788610152,
-					"disabled": true,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"FadeOut\"",
-						"property": "offsetOpacity",
-						"end-value": "100",
-						"time": "1",
-						"ease": "noease",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
 					"id": "tween-one-property",
 					"objectClass": "TitleEffect",
 					"sid": 205366085949455,
@@ -141,15 +105,6 @@
 						"loop": "no",
 						"ping-pong": "no",
 						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 520560428241183,
-					"disabled": true,
-					"parameters": {
-						"seconds": "3"
 					}
 				},
 				{

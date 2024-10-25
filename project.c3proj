@@ -255,14 +255,6 @@
 							}
 						},
 						{
-							"name": "particles.js",
-							"type": "application/javascript",
-							"sid": 532428171934398,
-							"script-info": {
-								"purpose": "none"
-							}
-						},
-						{
 							"name": "audioManager.js",
 							"type": "application/javascript",
 							"sid": 576950526398108,
@@ -362,16 +354,7 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [
-				{
-					"name": "ChicagoFLF.ttf",
-					"type": "application/font-sfnt",
-					"sid": 127266233565540,
-					"file-info": {
-						"purpose": "none"
-					}
-				}
-			],
+			"items": [],
 			"subfolders": []
 		},
 		"icon": {
@@ -441,9 +424,7 @@
 		}
 	},
 	"timelines": {
-		"items": [
-			"Timeline 1"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [],
