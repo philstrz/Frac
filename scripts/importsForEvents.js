@@ -1,1 +1,1 @@
-import { Next } from "./main.js";
+import { pause, touch } from "./main.js";

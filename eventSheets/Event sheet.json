@@ -950,6 +950,140 @@
 				}
 			],
 			"sid": 402855675990353
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-suspend",
+					"objectClass": "System",
+					"sid": 584206808045270
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "pause(runtime, true);"
+				}
+			],
+			"sid": 854853483756769
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-resume",
+					"objectClass": "System",
+					"sid": 317988874190263
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "pause(runtime, false);"
+				}
+			],
+			"sid": 235411635177278
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Touch input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "touchY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 470317643403477
+				},
+				{
+					"eventType": "variable",
+					"name": "touchX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 276271602810314
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap",
+							"objectClass": "Touch",
+							"sid": 770213952518668
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 390320667876745,
+							"parameters": {
+								"variable": "touchX",
+								"value": "Touch.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 953336199972694,
+							"parameters": {
+								"variable": "touchY",
+								"value": "Touch.Y"
+							}
+						},
+						{
+							"type": "script",
+							"script": "touch(localVars.touchX, localVars.touchY);"
+						}
+					],
+					"sid": 275793499483137
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-hold",
+							"objectClass": "Touch",
+							"sid": 286506909338617
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 947314727294030,
+							"parameters": {
+								"variable": "touchX",
+								"value": "Touch.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 935669980823516,
+							"parameters": {
+								"variable": "touchY",
+								"value": "Touch.Y"
+							}
+						},
+						{
+							"type": "script",
+							"script": "touch(localVars.touchX, localVars.touchY);"
+						}
+					],
+					"sid": 108416689682389
+				}
+			],
+			"sid": 311772557039119
 		}
 	],
 	"sid": 445921654178940

@@ -82,6 +82,10 @@ async function OnBeforeGameStart(runtime)
 	progress = runtime.objects.ProgressFill.getFirstInstance();
 	fingers = runtime.objects.Fingers.getFirstInstance();
 	camera = runtime.objects.Camera.getFirstInstance();
+	
+	//runtime.addEventListener("pointerdown", e => pointerDown(e));
+	window.addEventListener("focus", () => {pause(runtime, false)});
+	window.addEventListener("blur", () => {pause(runtime, true)});
 }
 
 function CreatePaddles(runtime)
@@ -105,11 +109,25 @@ function CreatePaddles(runtime)
 const rate = 4;
 let time = 3;
 
+let paused = false;
+export function pause(runtime, yes=!paused)
+{
+	paused = yes;
+	runtime.timeScale = paused ? 0 : 1;
+}
+
+
 function Tick(runtime)
 {
+	
+
 	// Code to run every tick
-	MoveOpponent(runtime);
+	
+	
+	if (paused) return;
+	
 	MovePaddle(runtime);
+	MoveOpponent(runtime);
 	AdjustProgress(runtime);
 	
 	for (const ball of runtime.objects.Ball.instances()) {
@@ -176,6 +194,27 @@ function MoveOpponent(runtime)
 	}
 }
 
+const touchInput = 
+{
+	down: false,
+	x: 0,
+	y: 0,
+}
+export function touch(x, y)
+{
+	touchInput.down = true;
+	touchInput.x = x;
+	touchInput.y = y;
+}
+
+/*
+function pointerDown(event)
+{
+	console.log(event);
+	//console.log(event.clientX, event.clientY);
+}
+*/
+
 function MovePaddle(runtime)
 {
 	//let y = runtime.mouse.getMouseY("Pong");
@@ -188,7 +227,16 @@ function MovePaddle(runtime)
 	const right = left + runtime.viewportWidth;
 	
 	const mouse = {};
-	[mouse.x, mouse.y] = runtime.mouse.getMousePosition("Pong");
+	if (touchInput.down)
+	{
+		[mouse.x, mouse.y] = [touchInput.x, touchInput.y];
+		touchInput.down = false;
+	}
+	else
+	{
+		[mouse.x, mouse.y] = runtime.mouse.getMousePosition("Pong");
+	}
+	
 	if (mouse.y > top & mouse.y < bottom & mouse.x > left & mouse.x < right)
 	{
 		y = mouse.y;
