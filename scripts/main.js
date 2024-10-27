@@ -237,7 +237,8 @@ function MovePaddle(runtime)
 		[mouse.x, mouse.y] = runtime.mouse.getMousePosition("Pong");
 	}
 	
-	if (mouse.y > top & mouse.y < bottom & mouse.x > left & mouse.x < right)
+	//if (mouse.y > top & mouse.y < bottom & mouse.x > left & mouse.x < right)
+	if (mouse.y > top & mouse.y < bottom)
 	{
 		y = mouse.y;
 	}

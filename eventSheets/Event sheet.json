@@ -1080,7 +1080,43 @@
 							"script": "touch(localVars.touchX, localVars.touchY);"
 						}
 					],
-					"sid": 108416689682389
+					"sid": 108416689682389,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 562607507530686
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 678944393664128,
+							"parameters": {
+								"variable": "touchX",
+								"value": "Touch.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 399821593496628,
+							"parameters": {
+								"variable": "touchY",
+								"value": "Touch.Y"
+							}
+						},
+						{
+							"type": "script",
+							"script": "touch(localVars.touchX, localVars.touchY);"
+						}
+					],
+					"sid": 270273827763929
 				}
 			],
 			"sid": 311772557039119
